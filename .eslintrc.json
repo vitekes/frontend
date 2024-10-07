@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["src/api/*", "node_modules/*"],
+  "rules": {
+    "no-var": "error",
+    "prefer-const": "warn",
+    "no-unused-vars": "error",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
