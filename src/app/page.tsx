@@ -12,5 +12,5 @@ export default async function Home() {
   // })
   // console.log(data)
 
-  return <h1>Main</h1>
+  return <div className='container'>text</div>
 }
