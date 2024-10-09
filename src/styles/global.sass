@@ -14,15 +14,24 @@ body
 .container
 	width: min(1170px,98%)
 	margin: 0 auto
-	background: $background
 	height: 100%
 
 main
 	flex-grow: 1
+	width: calc( 100% - 400px )
+	
+	@include badge()
+	padding: 20px
+	
+	float: left
+	
 .wrapper
 	display: flex
 	flex-direction: column
 	min-height: 100vh
+.content
+	margin-top: 70px
+
 
 ::selection
 	background: $accent

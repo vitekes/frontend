@@ -11,11 +11,15 @@ $grey700: #585858
 $grey500: #737373
 $grey200: #A0A0A0
 $greyBg : #D9D9D9
+$grey   : #EAEAEA
 
 $fontBold: var(--font-bold)
 $fontRegular: var(--font-regular)
 $fontMedium: var(--font-medium)
 
+@mixin badge()
+	background: $background
+	border-radius: 8px
 @mixin headerNav()
 	position: relative
 	display: block

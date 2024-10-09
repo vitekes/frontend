@@ -7,6 +7,24 @@
 		display: flex
 		justify-content: space-between
 		align-items: center
+		.header__actions
+			display: flex
+			column-gap: 10px
+	
+			button
+				width: 36px
+				height: 36px
+				background: $globalBackground
+				border-radius: 8px
+				transition: transform .4s, background .4s
+				&:hover
+					transform: scale(0.90)
+					background: $greyBg
+			.header__button-login
+				width: 60px
+				color: $background
+				background: $accent
+						
 		.header__nav
 			display: flex
 			column-gap: 36px

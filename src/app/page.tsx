@@ -12,5 +12,5 @@ export default async function Home() {
   // })
   // console.log(data)
 
-  return <div className='container'>text</div>
+  return <div className=''>Главная страница</div>
 }

@@ -5,6 +5,7 @@ import { Providers } from './Providers'
 
 import localFont from 'next/font/local'
 import { Header } from 'src/components/Header/Header'
+import { Sidebar } from 'src/components/Sidebar/Sidebar'
 import { CLIENT_URL } from 'src/constants/constants'
 import { SITE_NAME } from 'src/constants/seo.constants'
 
@@ -85,7 +86,10 @@ export default function RootLayout({
         <Providers>
           <div className='wrapper'>
             <Header />
-            <main>{children}</main>
+            <div className='container content'>
+              <main className=''>{children}</main>
+              <Sidebar />
+            </div>
             {/* <Footer /> */}
           </div>
         </Providers>
