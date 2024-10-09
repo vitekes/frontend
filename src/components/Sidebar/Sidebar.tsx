@@ -1,3 +1,4 @@
+import { Tag } from '../ui/Tag/Tag'
 import './Sidebar.sass'
 import { SidebarAuthor } from './SidebarAuthor'
 import { SidebarPost } from './SidebarPost'
@@ -67,9 +68,9 @@ export function Sidebar() {
       <section className='sidebar__categories'>
         <h2>Популярные категории</h2>
         <section className='sidebar__tags'>
-          <section className='sidebar__tag'>Психология</section>
-          <section className='sidebar__tag'>IT</section>
-          <section className='sidebar__tag'>Путешествия</section>
+          <Tag name='Психология' />
+          <Tag name='IT' />
+          <Tag name='Путешествия' />
         </section>
       </section>
       <section className='sidebar__authors'>

@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 interface ILink {
   name: string
@@ -32,13 +34,14 @@ const headerLinks: ILink[] = [
 ]
 
 export function HeaderNav() {
+  const pathname = usePathname()
   return (
     <nav className='header__nav'>
       {headerLinks.map(({ link, name }, index) => (
         <Link
           key={index}
           href={link}
-          className={index === 0 ? 'header__active' : ''}
+          className={pathname === link ? 'header__active' : ''}
         >
           {name}
         </Link>
