@@ -30,7 +30,8 @@ main
 	min-height: 100vh
 .content
 	margin-top: 70px
-
+.d-none
+	display: none
 
 ::selection
 	background: $accent
@@ -38,7 +39,10 @@ main
 ::-webkit-scrollbar
 	width: 9px
 	background: $background
-
 ::-webkit-scrollbar-thumb
 	background: $accent
 	width: 9px
+@media screen and (width <= 1030px)
+	main
+		width: 100%
+		

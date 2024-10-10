@@ -1,8 +1,8 @@
 'use client'
-import { useTabs } from 'src/app/store'
+import { useMainTabs } from 'src/app/store'
 import './Tabs.sass'
 export function Tabs() {
-  const { setTab, tabActive } = useTabs((state) => state)
+  const { setTab, tabActive } = useMainTabs((state) => state)
   return (
     <section className='main__tabs'>
       <span>{tabActive}</span>

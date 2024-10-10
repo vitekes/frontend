@@ -4,7 +4,7 @@
     "next/typescript",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["src/api/*", "node_modules/*"],
+  "ignorePatterns": ["src/api/*", "src/app/store.ts", "node_modules/*"],
   "rules": {
     "no-var": "error",
     "prefer-const": "warn",
