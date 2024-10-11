@@ -1,4 +1,4 @@
-@import "./../../../styles/_system.sass"
+@import "styles/_system.sass"
 .post
 	@include badge()
 	padding: 20px
@@ -6,10 +6,7 @@
 	.post__info
 		float: left
 		margin-right: 30px
-		hr
-			background: $grey
-			height: 1px
-			margin: 15px 0
+		
 		h3
 			font-weight: 700
 			color: $accent
@@ -26,7 +23,7 @@
 				border-radius: 10px
 		.post__categories
 			margin-bottom: 12px
-			color: #888888
+			color: $greyTxt
 			font-weight: 400
 		.post__tags
 			display: flex
@@ -34,19 +31,13 @@
 			margin-bottom: 12px
 		p
 			font-size: 16px
-		.post__actions
-			display: flex
-			column-gap: 20px
-			span
-				font-size: 15px
-				font-weight: 700
-			time, span
-				display: flex
-				align-items: center
-				column-gap: 2px
+		
 	.post__img
 		width: 250px
 		height: 100%
 		float: right
 		img
 			height: 100%
+.posts
+	display: grid
+	row-gap: 30px

@@ -1,18 +1,12 @@
 import avatar from 'assets/fake__avatar.png'
 import squrle from 'assets/sqarle.png'
 import Image from 'next/image'
+import { IPost } from 'src/constants/constants'
+import { Actions } from '../Actions/Actions'
 import { Tag } from '../Tag/Tag'
 import './Post.sass'
-import { PostActions } from './PostActions'
-export interface IPostProps {
-  author: string
-  categories: string[]
-  tags: string[]
-  title: string
-  text: string
-}
 
-export function Post({ author, categories, text, tags, title }: IPostProps) {
+export function Post({ author, categories, text, tags, title }: IPost) {
   return (
     <article className='post'>
       <div className='post__info'>
@@ -36,8 +30,8 @@ export function Post({ author, categories, text, tags, title }: IPostProps) {
           ))}
         </section>
         <p>{text}</p>
-        <hr />
-        <PostActions />
+
+        <Actions />
       </div>
       <div className='post__images'>
         <div className='post__img'>

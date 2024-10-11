@@ -4,6 +4,7 @@ import 'src/styles/global.sass'
 import { Providers } from './Providers'
 
 import localFont from 'next/font/local'
+import { Footer } from 'src/components/Footer/Footer'
 import { Header } from 'src/components/Header/Header'
 import { MoreContent } from 'src/components/MoreContent/MoreContent'
 import { Sidebar } from 'src/components/Sidebar/Sidebar'
@@ -92,7 +93,7 @@ export default function RootLayout({
               <main className=''>{children}</main>
               <Sidebar />
             </div>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </Providers>
       </body>

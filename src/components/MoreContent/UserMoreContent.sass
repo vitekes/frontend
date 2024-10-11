@@ -1,0 +1,41 @@
+@import "styles/_system.sass"
+.blog__hat
+	.blog__hat-img
+		width: 100%
+		object-fit: cover
+		height: 400px
+		filter: grayscale(20%)
+		opacity: 0.9
+	.blog__hat-avatar
+		left: calc( 50% - 80px )
+		top: -80px
+		opacity: 1
+		position: relative
+
+		width: 160px
+		height: 160px
+
+		border: 5px solid $globalBackground
+		border-radius: 20px
+	.blog__hat-info
+		text-align: center
+		
+		h1
+			font-size: 48px
+			font-weight: 700
+		p
+			font-size: 20px
+			font-weight: 500
+			color: $greyTxt
+			margin-bottom: 10px
+		.blog__hat-info__statistic
+			display: flex
+			justify-content: center
+			column-gap: 11px
+			font-size: 20px
+			font-weight: 500
+			color: $greyTxt
+
+@media screen and (width <= 1050px)
+	.blog__hat-img
+		height: 300px !important
