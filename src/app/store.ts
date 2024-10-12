@@ -4,7 +4,6 @@ type TTabs = {
   tabActive: number
   setTab: (num: number) => void
 }
-
 export const useMainTabs = create<TTabs>((set) => ({
   tabActive: 0,
   setTab: (num: number) =>

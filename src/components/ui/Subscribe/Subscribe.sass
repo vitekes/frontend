@@ -1,0 +1,46 @@
+@import "styles/_system.sass"
+.subscribe
+	height: 240px
+	width: 330px
+	padding: 30px
+	border-radius: 10px
+	transition: transform .4s
+	.subscribe__title
+		font-size: 16px
+		color: $color
+		font-weight: 700
+		text-align: center
+		margin-bottom: 10px
+	.subscribe__sub
+		color: $accent !important
+	.subscribe__price
+		font-size: 14px
+		font-weight: 700
+		text-align: center
+		color: $greyTxt
+		margin-bottom: 10px
+	.subscribe__rules
+		display: grid
+		margin: 20px 0
+		row-gap: 12px
+		justify-content: center
+		.subscribe__rule
+			display: flex
+			align-items: center
+			column-gap: 10px
+	.subscribe__button
+		width: 100%
+		display: flex
+		justify-content: center
+		button
+			margin: 0 auto
+			padding: 10px 30px
+			border-radius: 5px
+			color: $background
+			background: $color
+	&:hover
+		transform: scale(0.95)
+.subscribe-grey
+	background: $grey !important
+.subscribe-white
+	background: $background !important

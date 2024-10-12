@@ -1,14 +1,20 @@
-'use server'
+'use client'
 
-import { Tabs } from 'src/components/Main/Tabs'
 import { Posts } from 'src/components/ui/Post/Posts'
+import { Tabs } from 'src/components/ui/Tab/Tabs'
 import { posts } from 'src/constants/constants'
 import './Main.sass'
+import { useMainTabs } from './store'
 
-export default async function Home() {
+export default function Home() {
+  const { setTab, tabActive } = useMainTabs((state) => state)
   return (
     <div className=''>
-      <Tabs />
+      <Tabs
+        switchTab={setTab}
+        tabActive={tabActive}
+        tabs={['Все подряд', 'Отслеживаемые']}
+      />
       <section className='posts'>
         <Posts posts={posts} />
       </section>

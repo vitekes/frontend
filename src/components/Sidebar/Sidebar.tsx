@@ -7,8 +7,8 @@ import { ProfileSidebar } from './pages/ProfileSidebar'
 
 export function Sidebar() {
   const path = usePathname()
-  const { isMain, isProfile } = getProfilePage(path)
-
+  const { isMain, isProfile, needSideBar } = getProfilePage(path)
+  if (!needSideBar) return <></>
   return (
     <aside className='sidebar'>
       {isMain ? <HomeSidebar /> : isProfile && <ProfileSidebar />}
