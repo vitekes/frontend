@@ -1,19 +1,22 @@
-import type { IAlbum } from 'src/constants/constants'
+import images from 'assets/woman.png'
+import { IAlbum } from 'src/types/album.types'
 import { Album } from './Album'
 import './Albums.sass'
 export function Albums({ albums }: { albums: IAlbum[] }) {
   return (
     <section className='albums__list'>
       {albums.map(
-        ({ author, categories, images, tags, text, title, isSub }, i) => (
+        (
+          { user, title, count_comments, count_likes, count_views, date, id },
+          i,
+        ) => (
           <Album
-            author={author}
-            categories={categories}
+            author={user}
+            categories={['categories']}
             images={images}
-            tags={tags}
-            text={text}
+            tags={['tags']}
+            text={'text'}
             title={title}
-            isSub={isSub}
             key={i}
           />
         ),

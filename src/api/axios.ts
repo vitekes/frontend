@@ -1,10 +1,10 @@
 import axios, { type CreateAxiosDefaults } from 'axios'
 import { API_URL } from 'src/constants/constants'
-import { getContentType } from './api.helper'
+import { getHeaders } from './api.helper'
 
 const axiosOptions: CreateAxiosDefaults = {
   baseURL: API_URL,
-  headers: getContentType(),
+  headers: getHeaders(),
   withCredentials: true,
 }
 

@@ -1,4 +1,4 @@
-export const getContentType = () => ({
+export const getHeaders = () => ({
   'Content-Type': 'application/json',
 })
 

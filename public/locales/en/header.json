@@ -1,0 +1,11 @@
+{
+  "test": "Test",
+  "nav": {
+    "1": "Feeds",
+    "2": "Blog",
+    "3": "Collection",
+    "4": "Contests",
+    "5": "Quests",
+    "6": "Albums"
+  }
+}

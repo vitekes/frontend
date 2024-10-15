@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import 'src/styles/global.sass'
-import { Providers } from './Providers'
 
 import localFont from 'next/font/local'
 import { Footer } from 'src/components/Footer/Footer'
@@ -9,7 +8,8 @@ import { Header } from 'src/components/Header/Header'
 import { MoreContent } from 'src/components/MoreContent/MoreContent'
 import { Sidebar } from 'src/components/Sidebar/Sidebar'
 import { CLIENT_URL } from 'src/constants/constants'
-import { SITE_NAME } from 'src/constants/seo.constants'
+import { LANGUAGES, SITE_NAME } from 'src/constants/seo.constants'
+import Providers from 'src/providers/Providers'
 
 const bold = localFont({
   src: './fonts/Manrope-Bold.ttf',
@@ -26,6 +26,10 @@ const medium = localFont({
   variable: '--font-medium',
   weight: '500',
 })
+
+export async function generateStaticParams() {
+  return LANGUAGES.map((lng) => ({ lng }))
+}
 
 export const metadata: Metadata = {
   title: {
@@ -79,11 +83,13 @@ export const viewport: Viewport = {
 }
 export default function RootLayout({
   children,
+  params: { lng },
 }: Readonly<{
   children: ReactNode
+  params: { lng: string }
 }>) {
   return (
-    <html lang='ru'>
+    <html lang={lng}>
       <body className={(bold.className, regular.className, medium.className)}>
         <Providers>
           <div className='wrapper'>
