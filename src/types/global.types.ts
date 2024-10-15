@@ -11,5 +11,5 @@ export interface IQueryLayout<T> {
   isError: boolean
   error: Error | null
 }
-export type TLanguage = 'english, russian'
+export type TLanguage = 'english' | 'russian'
 export type TItemType = 'post' | 'album' | 'quest'

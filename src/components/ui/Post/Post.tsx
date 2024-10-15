@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { IPost } from 'src/constants/constants'
 import { Actions } from '../Actions/Actions'
 import { Tag } from '../Tag/Tag'
+import { Title } from '../Title/Title'
 import './Post.sass'
 
 export function Post({ author, categories, text, tags, title }: IPost) {
@@ -15,7 +16,7 @@ export function Post({ author, categories, text, tags, title }: IPost) {
           {author}
         </div>
         <hr />
-        <h3>{title}</h3>
+        <Title tag='h3'>{title}</Title>
         <section className='post__categories'>
           {categories.map((str, index) => (
             <>

@@ -5,6 +5,7 @@ import { Actions } from '../Actions/Actions'
 
 import type { IAlbum } from 'src/constants/constants'
 import { Tag } from '../Tag/Tag'
+import { Title } from '../Title/Title'
 export function Album({
   author,
   categories,
@@ -14,8 +15,6 @@ export function Album({
   images,
   isSub,
 }: IAlbum) {
-  console.log(isSub)
-
   return (
     <article className='album'>
       <div className='album__info'>
@@ -24,7 +23,7 @@ export function Album({
           {author}
         </div>
         <hr />
-        <h3>{title}</h3>
+        <Title tag='h3'>{title}</Title>
         <section className='album__categories'>
           {categories.map((str, index) => (
             <>
