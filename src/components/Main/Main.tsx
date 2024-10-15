@@ -1,7 +1,7 @@
 'use client'
-import { Posts } from 'src/components/ui/Post/Posts'
-import { Tabs } from 'src/components/ui/Tab/Tabs'
 import { posts } from 'src/constants/constants'
+import { Posts } from 'ui/Post/Posts'
+import { Tabs } from 'ui/Tab/Tabs'
 import './Main.sass'
 
 import { useMainTabs } from 'src/app/store'

@@ -1,8 +1,8 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import './Button.sass'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  // variant: 'primary' | 'secondary' | 'disabled'
   isCircle?: boolean
 }
 
@@ -10,7 +10,6 @@ export function Button({
   children,
   // variant = 'primary',
   // isCircle,
-  // className,
   ...rest
 }: Props) {
   return (
@@ -24,6 +23,7 @@ export function Button({
       // 	className
       // )}
       {...rest}
+      className='btn'
     >
       {children}
     </button>
