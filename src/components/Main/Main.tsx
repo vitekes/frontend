@@ -9,7 +9,7 @@ import { useMainTabs } from 'src/app/store'
 export function Main() {
   const { setTab, tabActive } = useMainTabs((state) => state)
   return (
-    <div className=''>
+    <div className='main'>
       <Tabs
         switchTab={setTab}
         tabActive={tabActive}

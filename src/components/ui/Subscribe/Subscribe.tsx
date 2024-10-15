@@ -1,6 +1,8 @@
 import success from 'assets/success.svg'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
 import convertToPrettyString from 'src/utils/convertNumberToPrettyString'
+import { Button } from '../Button/Button'
 import './Subscribe.sass'
 interface Props {
   name: string
@@ -38,7 +40,13 @@ export function Subscribe({ rules, isSub, name, price, style }: Props) {
         ))}
       </ul>
       <div className='subscribe__button'>
-        {!isSub ? <button>Подписаться</button> : <></>}
+        {!isSub ? (
+          <Button onClick={() => toast.success('You have subscribed!')}>
+            Подписаться
+          </Button>
+        ) : (
+          <></>
+        )}
       </div>
     </section>
   )

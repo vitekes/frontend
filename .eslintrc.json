@@ -1,25 +1,21 @@
 {
-	"extends": [
-		"next/core-web-vitals",
-		"next/typescript",
-		"plugin:prettier/recommended"
-	],
-	"ignorePatterns": [
-		"src/api/*",
-		// "src/components/ui/Tab/Tabs.tsx",
-		"src/app/store.ts",
-		"node_modules/*"
-	],
-	"rules": {
-		"no-var": "warn",
-		"prefer-const": "warn",
-		"no-unused-vars": "warn",
-		"prettier/prettier": [
-			"warn",
-			{
-				"endOfLine": "auto"
-			},
-			{ "printWidth": 80 }
-		]
-	}
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["node_modules/*"],
+  "rules": {
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      },
+      { "printWidth": 80 }
+    ]
+  }
 }

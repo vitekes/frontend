@@ -1,15 +1,15 @@
 'use client'
 import { useProfileTabs } from 'src/app/store'
 import { posts } from 'src/constants/constants'
-import { Posts } from '../ui/Post/Posts'
-import { Tabs } from '../ui/Tab/Tabs'
+import { Posts } from 'ui/Post/Posts'
+import { Tabs } from 'ui/Tab/Tabs'
 import { Abouts } from './BlogPages/Abouts'
 
-import useAlbums from 'src/hooks/useAlbums'
+import { useAlbums } from 'src/hooks/useAlbums'
 import QueryMiddleware from 'src/providers/query-middleware'
 import type { IAlbum } from 'src/types/album.types'
 import type { IResponse } from 'src/types/global.types'
-import { Albums } from '../ui/Albums/Albums'
+import { Albums } from 'ui/Albums/Albums'
 import { Quests } from './BlogPages/Quests'
 
 export function Blog({ initData }: { initData: IResponse<IAlbum> }) {
