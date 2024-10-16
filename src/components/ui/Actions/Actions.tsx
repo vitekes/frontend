@@ -1,33 +1,45 @@
 import Image from 'next/image'
 import convertToPrettyString from 'src/utils/convertNumberToPrettyString'
 
-import comments from 'assets/actions/comments.svg'
-import date from 'assets/actions/date.svg'
-import eye from 'assets/actions/eye.svg'
-import heart from 'assets/actions/heart.svg'
+import commentsSVG from 'assets/actions/comments.svg'
+import dateSVG from 'assets/actions/date.svg'
+import eyeSVG from 'assets/actions/eye.svg'
+import heartSVG from 'assets/actions/heart.svg'
 
+import convertDate from 'src/utils/convertDate'
 import './Actions.sass'
+export type TActionsProps = {
+  actionsInfo: {
+    date: Date
+    likes: number
+    views: number
+    comments: number
+  }
+}
 
-export function Actions() {
+export function Actions({
+  actionsInfo: { comments, date, likes, views },
+}: TActionsProps) {
+  const datePretty = convertDate(date)
   return (
     <>
       <hr className='actions__hr' />
       <section className='actions'>
-        <time dateTime=''>
-          <Image alt='Date' width={16} height={16} src={date} />
-          13 июня 2024
+        <time dateTime={datePretty}>
+          <Image alt='Date' width={16} height={16} src={dateSVG} />
+          {datePretty}
         </time>
         <span>
-          <Image alt='Watches' width={16} height={16} src={eye} />
-          {convertToPrettyString(18000)}
+          <Image alt='Watches' width={16} height={16} src={eyeSVG} />
+          {convertToPrettyString(views)}
         </span>
         <span>
-          <Image alt='Likes' width={16} height={16} src={heart} />
-          {convertToPrettyString(222)}
+          <Image alt='Likes' width={16} height={16} src={heartSVG} />
+          {convertToPrettyString(likes)}
         </span>
         <span>
-          <Image alt='Comments' width={16} height={16} src={comments} />
-          {convertToPrettyString(499)}
+          <Image alt='Comments' width={16} height={16} src={commentsSVG} />
+          {convertToPrettyString(comments)}
         </span>
       </section>
     </>

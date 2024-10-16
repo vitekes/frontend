@@ -14,7 +14,7 @@ const nextConfig = {
         protocol: process.env.PROTOCOL,
         hostname: process.env.DOMAIN,
         port: '',
-        pathname: '/**',
+        pathname: '/media/**',
       },
     ],
   },

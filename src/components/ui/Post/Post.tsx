@@ -1,8 +1,8 @@
-import avatar from 'assets/fake__avatar.png'
 import squrle from 'assets/sqarle.png'
 import Image from 'next/image'
 import { IPost } from 'src/constants/constants'
 import { Actions } from '../Actions/Actions'
+import { Author } from '../Author/Author'
 import { Tag } from '../Tag/Tag'
 import { Title } from '../Title/Title'
 import './Post.sass'
@@ -11,10 +11,7 @@ export function Post({ author, categories, text, tags, title }: IPost) {
   return (
     <article className='post'>
       <div className='post__info'>
-        <div className='post__authors'>
-          <Image alt='Author Name' width={40} height={40} src={avatar} />
-          {author}
-        </div>
+        <Author author={author} />
         <hr />
         <Title tag='h3'>{title}</Title>
         <section className='post__categories'>

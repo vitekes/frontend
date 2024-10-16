@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Actions } from '../Actions/Actions'
 
 import type { IAlbum } from 'src/constants/constants'
-import { Tag } from '../Tag/Tag'
+import { Tags } from '../Tag/Tags'
 import { Title } from '../Title/Title'
 export function Album({
   author,
@@ -14,6 +14,7 @@ export function Album({
   title,
   images,
   isSub,
+  actions: { actionsInfo },
 }: IAlbum) {
   return (
     <article className='album'>
@@ -34,11 +35,7 @@ export function Album({
         </section>
         {!isSub ? (
           <>
-            <section className='album__tags'>
-              {tags.map((txt, index) => (
-                <Tag key={index} name={txt} />
-              ))}
-            </section>
+            <Tags tags={tags} />
             <p>{text}</p>
           </>
         ) : (
@@ -50,7 +47,7 @@ export function Album({
           <Image src={images} width={730} height={800} alt='Album photo' />
         </div>
       )}
-      <Actions />
+      <Actions actionsInfo={actionsInfo} />
     </article>
   )
 }

@@ -1,5 +1,6 @@
 import woman from 'assets/woman.png'
 import { StaticImageData } from 'next/image'
+import { TActionsProps } from 'src/components/ui/Actions/Actions'
 
 export interface IPost {
   author: string
@@ -11,6 +12,7 @@ export interface IPost {
 export interface IAlbum extends IPost {
   images: StaticImageData
   isSub?: boolean
+  actions: TActionsProps
 }
 export const API_URL = process.env.SERVER_URL,
   IS_DEV: boolean = process.env.NODE_ENV === 'development',
@@ -54,14 +56,13 @@ export const API_URL = process.env.SERVER_URL,
       text: 'Обладая ключом к знаниям, что могут изменить реальный мир, сможешь ли ты остаться безучастным к судьбе цифрового мира, частью которого стал? Миссию, что была возложена на тебя надо завершить во чтобы-то ни стало, но к конечной точке всегда ведет не одна дорога, и даже не две. Цель выбрана, осталось лишь выбрать дорогу.',
       images: woman,
       isSub: false,
-    },
-    {
-      author: 'Семён Семёныч',
-      categories: ['Категория', 'Подкатегория'],
-      tags: ['рыбы', 'арбузы', 'лето'],
-      title: 'Название поста, дада, вид поста в ленте ',
-      text: 'Обладая ключом к знаниям, что могут изменить реальный мир, сможешь ли ты остаться безучастным к судьбе цифрового мира, частью которого стал? Миссию, что была возложена на тебя надо завершить во чтобы-то ни стало, но к конечной точке всегда ведет не одна дорога, и даже не две. Цель выбрана, осталось лишь выбрать дорогу.',
-      images: woman,
-      isSub: true,
+      actions: {
+        actionsInfo: {
+          comments: 124,
+          date: new Date('2024-10-10T16:05:22.149821Z'),
+          likes: 1235,
+          views: 75129,
+        },
+      },
     },
   ]
