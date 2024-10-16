@@ -1,4 +1,5 @@
-import { type IPost, Post } from './Post'
+import { IPost } from 'src/constants/constants'
+import { Post } from './Post'
 
 interface Props {
   posts: IPost[]

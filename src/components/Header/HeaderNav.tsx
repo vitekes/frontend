@@ -12,7 +12,7 @@ const headerLinks: ILink[] = [
   },
   {
     name: 'Блог',
-    link: '/blog',
+    link: '/blogs/1',
   },
   {
     name: 'Коллекция',

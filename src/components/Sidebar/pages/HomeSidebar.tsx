@@ -1,4 +1,4 @@
-import { Tag } from 'ui/Tag/Tag'
+import { Tags } from 'ui/Tag/Tags'
 import { SidebarAuthor } from './../SidebarAuthor'
 import { SidebarPost } from './../SidebarPost'
 const posts = [
@@ -65,11 +65,7 @@ export function HomeSidebar() {
       </section>
       <section className='sidebar__categories'>
         <h2>Популярные категории</h2>
-        <section className='sidebar__tags'>
-          <Tag name='Психология' />
-          <Tag name='IT' />
-          <Tag name='Путешествия' />
-        </section>
+        <Tags tags={['IT', 'Психология', 'Зоология']} />
       </section>
       <section className='sidebar__authors'>
         <h2>Популярные авторы</h2>

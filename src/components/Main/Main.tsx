@@ -7,7 +7,7 @@ import './Main.sass'
 import { useMainTabs } from 'src/app/store'
 
 export function Main() {
-  const { setTab, tabActive } = useMainTabs((state) => state)
+  const { setTab, tabActive } = useMainTabs(state => state)
   return (
     <div className='main'>
       <Tabs
