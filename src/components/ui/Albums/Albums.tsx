@@ -2,8 +2,6 @@ import { IAlbum } from 'src/types/album.types'
 import { Album } from './Album'
 import './Albums.sass'
 export function Albums({ albums }: { albums: IAlbum[] }) {
-  console.log(albums)
-
   return (
     <section className='albums__list'>
       {albums.map(

@@ -20,7 +20,7 @@ const headerLinks: ILink[] = [
   },
   {
     name: 'Конкурсы',
-    link: '/events',
+    link: '/contests',
   },
   {
     name: 'Квесты',

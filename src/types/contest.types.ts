@@ -8,4 +8,6 @@ export interface IContest {
   start_date: Date
   end_date: Date
   language: TLanguage
+  item_type: 'post' | 'album' | 'quest'
+  criteries: 'likes' | 'views' | 'assessment '
 }

@@ -3,9 +3,9 @@ import albumService from 'src/services/album.service'
 import type { IAlbum } from 'src/types/album.types'
 import type { IQueryLayout, IResponse } from 'src/types/global.types'
 
-export function useAlbums(
+export const useAlbums = (
   initialData: IResponse<IAlbum>,
-): IQueryLayout<IResponse<IAlbum>> {
+): IQueryLayout<IResponse<IAlbum>> => {
   const { data, isLoading, isError, isFetching, error } = useQuery({
     queryKey: ['albums'],
     queryFn: () => albumService.getAll(),

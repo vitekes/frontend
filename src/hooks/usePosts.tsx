@@ -3,9 +3,9 @@ import postService from 'src/services/post.service'
 import type { IQueryLayout, IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
 
-export function usePosts(
+export const usePosts = (
   initialData: IResponse<IPost>,
-): IQueryLayout<IResponse<IPost>> {
+): IQueryLayout<IResponse<IPost>> => {
   const { data, isLoading, isError, isFetching, error } = useQuery({
     queryKey: ['posts'],
     queryFn: () => postService.getAll(),

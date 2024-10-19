@@ -6,7 +6,7 @@ import dateSVG from 'assets/actions/date.svg'
 import eyeSVG from 'assets/actions/eye.svg'
 import heartSVG from 'assets/actions/heart.svg'
 
-import convertDate from 'src/utils/convertDate'
+import { convertDate } from 'src/utils/convertDate'
 import './Actions.sass'
 
 import { TActionsProps } from 'src/types/props.types'

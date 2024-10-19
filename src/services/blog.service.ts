@@ -1,9 +1,9 @@
 import { axiosClassic } from 'src/api/axios'
 
 class BlogService {
-  private readonly BASE_URL = '/blogs/'
+  private readonly BASE_URL = '/blogs'
   public async getAll() {
-    const { data } = await axiosClassic.get(this.BASE_URL)
+    const { data } = await axiosClassic.get(this.BASE_URL + '/')
     return data
   }
   public async getOne(id: number) {

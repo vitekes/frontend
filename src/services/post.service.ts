@@ -3,9 +3,9 @@ import type { IResponse } from 'src/types/global.types'
 import type { IPost, IUniqPost } from 'src/types/post.types'
 
 class PostService {
-  private readonly BASE_URL = '/posts/'
+  private readonly BASE_URL = '/posts'
   public async getAll(): Promise<IResponse<IPost>> {
-    const { data } = await axiosClassic(this.BASE_URL)
+    const { data } = await axiosClassic(this.BASE_URL + '/')
     return data
   }
   public async getOne(
