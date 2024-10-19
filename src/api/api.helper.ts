@@ -1,6 +1,5 @@
 export const getHeaders = () => ({
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*',
 })
 
 export const errorCatch =

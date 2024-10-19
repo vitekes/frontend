@@ -1,11 +1,12 @@
 import type { TLanguage } from './global.types'
+import { IUserElement } from './user.types'
 
 export interface IAlbum {
   id: number
   title: string
   description: string
   language: TLanguage
-  user: string
+  user: IUserElement
   date: Date
   count_comments: number
   count_views: number

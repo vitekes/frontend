@@ -5,7 +5,7 @@ interface IProfilePage {
 }
 
 export default function getProfilePage(path: string): IProfilePage {
-  if (path === '/') {
+  if (path === '/' || path.includes('/albums')) {
     return { isMain: true, isProfile: false, needSideBar: true }
   } else if (path.includes('/blogs/')) {
     return { isMain: false, isProfile: true, needSideBar: true }

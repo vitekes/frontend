@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import albumService from 'src/services/album.serivce'
+import albumService from 'src/services/album.service'
 import type { IAlbum } from 'src/types/album.types'
 import type { IQueryLayout, IResponse } from 'src/types/global.types'
 

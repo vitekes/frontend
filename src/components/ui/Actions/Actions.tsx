@@ -8,26 +8,19 @@ import heartSVG from 'assets/actions/heart.svg'
 
 import convertDate from 'src/utils/convertDate'
 import './Actions.sass'
-export type TActionsProps = {
-  actionsInfo: {
-    date: Date
-    likes: number
-    views: number
-    comments: number
-  }
-}
+
+import { TActionsProps } from 'src/types/props.types'
 
 export function Actions({
   actionsInfo: { comments, date, likes, views },
 }: TActionsProps) {
-  const datePretty = convertDate(date)
   return (
     <>
       <hr className='actions__hr' />
       <section className='actions'>
-        <time dateTime={datePretty}>
+        <time dateTime={date.toLocaleString()}>
           <Image alt='Date' width={16} height={16} src={dateSVG} />
-          {datePretty}
+          {convertDate(new Date(date))}
         </time>
         <span>
           <Image alt='Watches' width={16} height={16} src={eyeSVG} />

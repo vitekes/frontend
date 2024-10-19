@@ -1,4 +1,4 @@
-import { IPost } from 'src/constants/constants'
+import { IPost } from 'src/types/post.types'
 import { Post } from './Post'
 
 interface Props {
@@ -8,16 +8,35 @@ interface Props {
 export function Posts({ posts }: Props) {
   return (
     <section className='posts'>
-      {posts.map(({ author, categories, tags, text, title }, index) => (
-        <Post
-          author={author}
-          categories={categories}
-          tags={tags}
-          text={text}
-          title={title}
-          key={index}
-        />
-      ))}
+      {posts.map(
+        ({
+          title,
+          content,
+          date,
+          count_comments,
+          count_likes,
+          count_views,
+          id,
+          user: { username },
+        }) => (
+          <Post
+            actions={{
+              actionsInfo: {
+                comments: count_comments,
+                date: new Date(date),
+                likes: count_likes,
+                views: count_views,
+              },
+            }}
+            author={username}
+            categories={['categories']}
+            tags={['tags']}
+            text={content}
+            title={title}
+            key={id}
+          />
+        ),
+      )}
     </section>
   )
 }

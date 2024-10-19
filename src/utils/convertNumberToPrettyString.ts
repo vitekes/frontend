@@ -1,3 +1,8 @@
+const roundUp = (num: number, precision: number = 1) => {
+  precision = Math.pow(10, precision)
+  return Math.ceil(num * precision) / precision
+}
+
 const convertToPrettyString = (number: number): string => {
   let retNum: string
   const MILLIARD = 1000000000,
@@ -5,11 +10,11 @@ const convertToPrettyString = (number: number): string => {
     HUNDRED = 1000
 
   if (number >= HUNDRED && number < MILLION) {
-    retNum = Math.floor(number / HUNDRED) + 'K'
+    retNum = roundUp(number / HUNDRED) + 'K'
   } else if (number >= MILLION && number < MILLIARD) {
-    retNum = Math.floor(number / MILLION) + 'M'
+    retNum = roundUp(number / MILLION) + 'M'
   } else if (number >= MILLIARD) {
-    retNum = Math.floor(number / MILLIARD) + 'MLDR'
+    retNum = roundUp(number / MILLIARD) + 'MLDR'
   } else {
     retNum = `${number}`
   }

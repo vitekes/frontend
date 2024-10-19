@@ -1,4 +1,5 @@
 import type { TLanguage } from './global.types'
+import { IUserElement } from './user.types'
 
 export interface IPost {
   id: number
@@ -6,7 +7,7 @@ export interface IPost {
   content: string
   preview: string | null
   language: TLanguage
-  user: number
+  user: IUserElement
   count_views: number
   count_comments: number
   count_likes: number

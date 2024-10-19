@@ -1,13 +1,24 @@
 import squrle from 'assets/sqarle.png'
 import Image from 'next/image'
-import { IPost } from 'src/constants/constants'
+
+import { IPostProps, TActionsProps } from 'src/types/props.types'
 import { Actions } from '../Actions/Actions'
 import { Author } from '../Author/Author'
 import { Tags } from '../Tag/Tags'
 import { Title } from '../Title/Title'
 import './Post.sass'
 
-export function Post({ author, text, tags, title }: IPost) {
+type TProps = {
+  actions: TActionsProps
+} & IPostProps
+
+export function Post({
+  author,
+  text,
+  tags,
+  title,
+  actions: { actionsInfo },
+}: TProps) {
   return (
     <article className='post'>
       <div className='post__info'>
@@ -16,16 +27,12 @@ export function Post({ author, text, tags, title }: IPost) {
         <Title tag='h3'>{title}</Title>
         <section className='post__categories'>Категория</section>
         <Tags tags={tags} />
-        <p>{text}</p>
+        <p>
+          {text.slice(0, 250)}
+          {text.length > 250 && '...'}
+        </p>
 
-        <Actions
-          actionsInfo={{
-            comments: 1342,
-            date: new Date('2024-10-03T21:27:04.909468Z'),
-            likes: 12412,
-            views: 136136,
-          }}
-        />
+        <Actions actionsInfo={actionsInfo} />
       </div>
       <div className='post__images'>
         <div className='post__img'>

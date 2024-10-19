@@ -7,6 +7,8 @@ const nextConfig = {
   },
   env: {
     SERVER_URL: process.env.SERVER_URL,
+    MEDIA_URL: process.env.MEDIA_URL,
+    DOMAIN: process.env.DOMAIN,
   },
   images: {
     remotePatterns: [

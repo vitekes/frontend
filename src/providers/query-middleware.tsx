@@ -11,6 +11,7 @@ export default function QueryMiddleware<T>({
   children,
   filters: { data, error, isError, isFetching, isLoading },
 }: Props<T>) {
+  // if (!IS_CLIENT) return children
   if (isFetching || isLoading) return <Loader />
   if (isError || !data) {
     console.error(error)

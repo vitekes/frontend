@@ -13,7 +13,8 @@ import { Albums } from 'ui/Albums/Albums'
 import { Quests } from './BlogPages/Quests'
 
 export function Blog({ initData }: { initData: IResponse<IAlbum> }) {
-  const { setTab, tabActive } = useProfileTabs((s) => s)
+  const { setTab, tabActive } = useProfileTabs(state => state)
+
   const data = useAlbums(initData)
 
   return (

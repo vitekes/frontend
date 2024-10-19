@@ -1,23 +1,27 @@
 'use client'
-import { posts } from 'src/constants/constants'
+
 import { Posts } from 'ui/Post/Posts'
-import { Tabs } from 'ui/Tab/Tabs'
 import './Main.sass'
 
-import { useMainTabs } from 'src/app/store'
+import { usePosts } from 'src/hooks/usePosts'
+import QueryMiddleware from 'src/providers/query-middleware'
+import type { IResponse } from 'src/types/global.types'
+import type { IPost } from 'src/types/post.types'
 
-export function Main() {
-  const { setTab, tabActive } = useMainTabs(state => state)
+export function Main({ initData }: { initData: IResponse<IPost> }) {
+  // const { tabActive, setTab } = useMainTabs(state => state)
+
+  const posts = usePosts(initData)
   return (
     <div className='main'>
-      <Tabs
+      {/* <Tabs
         switchTab={setTab}
         tabActive={tabActive}
         tabs={['Все подряд', 'Отслеживаемые']}
-      />
-      <section className='posts'>
-        <Posts posts={posts} />
-      </section>
+      /> */}
+      <QueryMiddleware filters={posts}>
+        <Posts posts={posts.data.results} />
+      </QueryMiddleware>
     </div>
   )
 }
