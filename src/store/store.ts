@@ -1,10 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-type TTabs = {
-  tabActive: number
-  //eslint-disable-next-line
-  setTab: (num: number) => void
-}
+import type { IStore, TTabs } from './store.types'
 
 export const useMainTabs = create<TTabs>()(
   persist(
@@ -36,3 +32,22 @@ export const useProfileTabs = create<TTabs>()(
     },
   ),
 )
+const initialQueryParams: Pick<IStore, 'queryParams'> = {
+  queryParams: {
+    page: 1,
+    perPage: 9,
+  },
+}
+
+export const useFiltersStore = create<IStore>(set => ({
+  ...initialQueryParams,
+  isFilterUpdated: false,
+
+  updateQueryParam: ({ key, value }) =>
+    set(state => ({
+      queryParams: { ...state.queryParams, [key]: value },
+      isFilterUpdated: true,
+    })),
+
+  reset: () => set(() => ({ ...initialQueryParams, isFilterUpdated: true })),
+}))

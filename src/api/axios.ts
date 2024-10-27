@@ -1,6 +1,6 @@
 import axios, { type CreateAxiosDefaults } from 'axios'
 import { API_URL } from 'src/constants/constants'
-import { getHeaders } from './api.helper'
+import { errorCatch, getHeaders } from './api.helper'
 
 const axiosOptions: CreateAxiosDefaults = {
   baseURL: API_URL,
@@ -10,42 +10,42 @@ const axiosOptions: CreateAxiosDefaults = {
 
 export const axiosClassic = axios.create(axiosOptions)
 
-export const instance = axios.create(axiosOptions)
+export const axiosWithAuth = axios.create(axiosOptions)
 
-// instance.interceptors.request.use(config => {
-// 	const accessToken = getAccessToken()
+axiosWithAuth.interceptors.request.use(config => {
+	const accessToken = getAccessToken()
 
-// 	if (config?.headers && accessToken)
-// 		config.headers.Authorization = `Bearer ${accessToken}`
+	if (config?.headers && accessToken)
+		config.headers.Authorization = `Bearer ${accessToken}`
 
-// 	return config
-// })
+	return config
+})
 
-// instance.interceptors.response.use(
-// 	config => config,
-// 	async error => {
-// 		const originalRequest = error.config
+axiosWithAuth.interceptors.response.use(
+	config => config,
+	async error => {
+		const originalRequest = error.config
 
-// 		if (
-// 			(error?.response?.status === 401 ||
-// 				errorCatch(error) === 'jwt expired' ||
-// 				errorCatch(error) === 'jwt must be provided') &&
-// 			error.config &&
-// 			!error.config._isRetry
-// 		) {
-// 			originalRequest._isRetry = true
-// 			try {
-// 				await authService.getNewTokens()
-// 				return instance.request(originalRequest)
-// 			} catch (error) {
-// 				if (
-// 					errorCatch(error) === 'jwt expired' ||
-// 					errorCatch(error) === 'Refresh token not passed'
-// 				)
-// 					removeFromStorage()
-// 			}
-// 		}
+		if (
+			(error?.response?.status === 401 ||
+				errorCatch(error) === 'jwt expired' ||
+				errorCatch(error) === 'jwt must be provided') &&
+			error.config &&
+			!error.config._isRetry
+		) {
+			originalRequest._isRetry = true
+			try {
+				await authService.getNewTokens()
+				return axiosWithAuth.request(originalRequest)
+			} catch (error) {
+				if (
+					errorCatch(error) === 'jwt expired' ||
+					errorCatch(error) === 'Refresh token not passed'
+				)
+					removeFromStorage()
+			}
+		}
 
-// 		throw error
-// 	}
-// )
+		throw error
+	}
+)

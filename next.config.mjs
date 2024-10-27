@@ -24,6 +24,7 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       styles: appRootPath + '/src/styles',
+      vars: appRootPath + '/src/styles/_system.sass',
     }
     return config
   },

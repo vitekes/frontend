@@ -6,3 +6,5 @@ up:
 # 	docker run -p 80:80 vifyx
 nginx: 
 	docker build -t nginx:latest -f nginx/Dockerfile nginx
+dev:
+	bun run dev

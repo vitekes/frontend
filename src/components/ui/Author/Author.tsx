@@ -3,9 +3,9 @@ import Image from 'next/image'
 import './Author.sass'
 export function Author({ author }: { img?: string; author: string }) {
   return (
-    <div className='author'>
+    <section className='author'>
       <Image alt='Author Name' width={40} height={40} src={avatar} />
       {author}
-    </div>
+    </section>
   )
 }

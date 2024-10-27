@@ -4,6 +4,11 @@ export interface IResponse<T> {
   previous: null
   results: T[]
 }
+export type TResponse<T> = {
+  length: number
+  array: T[]
+}
+
 export interface IQueryLayout<T> {
   data: T
   isLoading: boolean
@@ -13,3 +18,7 @@ export interface IQueryLayout<T> {
 }
 export type TLanguage = 'english' | 'russian'
 export type TItemType = 'post' | 'album' | 'quest'
+export type TPagination = {
+  page?: string | number
+  perPage: string | number
+}

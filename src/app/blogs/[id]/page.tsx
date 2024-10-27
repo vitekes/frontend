@@ -5,6 +5,7 @@ async function getData() {
   const results = await albumService.getAll()
   return results
 }
+export const revalidate = 60
 
 export default async function page() {
   const data = await getData()
