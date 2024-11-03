@@ -1,4 +1,4 @@
-import { differenceInDays, format, isSameMonth, Locale } from 'date-fns'
+import { differenceInDays, format, isSameMonth, type Locale } from 'date-fns'
 import { ru } from 'date-fns/locale'
 function declOfNum(number: number, titles: [string, string, string]): string {
   const cases = [2, 0, 1, 1, 1, 2]

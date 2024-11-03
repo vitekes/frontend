@@ -3,39 +3,47 @@
 	@include badge()
 	padding: 20px
 	display: flex
+	justify-content: space-between
 	.post__info
+		// position: relative
 		float: left
 		margin-right: 30px
-		
-		h3
-			font-weight: 700
-			color: $accent
-			font-size: 20px
-			margin-bottom: 12px
-		.post__authors
-			display: flex
-			align-items: center
-			column-gap: 10px
+		display: grid
+		width: 100%
+		.post__container
+			h3
+				font-weight: 700
+				color: $accent
+				font-size: 20px
+				margin-bottom: 12px
+			.post__authors
+				display: flex
+				align-items: center
+				column-gap: 10px
 
-			font-weight: 700
-			font-size: 16px
-			img
-				border-radius: 10px
-		.post__categories
-			margin-bottom: 12px
-			color: $greyTxt
-			font-weight: 400
-		.tags
-			margin-bottom: 12px
-		p
-			font-size: 16px
-		
+				font-weight: 700
+				font-size: 16px
+				img
+					border-radius: 10px
+			.post__categories
+				margin-bottom: 12px
+				color: $greyTxt
+				font-weight: 400
+			.tags
+				margin-bottom: 12px
+			p
+				font-size: 16px
+		.actions
+			// align-self: stretch
+			// position: absolute
+			// bottom: 10px
 	.post__img
-		width: 250px
-		height: 100%
-		float: right
+		min-width: 250px
 		img
 			height: 100%
+			border-radius: 10px
+			object-fit: cover
+
 .posts
 	display: grid
 	row-gap: 30px

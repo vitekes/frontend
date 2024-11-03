@@ -1,20 +1,18 @@
 import './Tag.sass'
-export function Tags({
+export const Tags = ({
   tags,
   className,
 }: {
   className?: string
   tags: string[]
-}) {
-  return (
-    !(tags.length === 0) && (
-      <section className={`tags ${className ? className : ''}`}>
-        {tags.map((tag, index) => (
-          <section className='tag' key={index}>
-            {tag}
-          </section>
-        ))}
-      </section>
-    )
-  )
-}
+}) =>
+  tags.length !== 0 ||
+  (tags[0] !== '' && (
+    <section className={`tags ${className ? className : ''}`}>
+      {tags.map((tag, index) => (
+        <section className='tag' key={index}>
+          {tag}
+        </section>
+      ))}
+    </section>
+  ))

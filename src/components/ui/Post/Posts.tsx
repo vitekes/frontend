@@ -1,4 +1,4 @@
-import { IPost } from 'src/types/post.types'
+import type { IPost } from 'src/types/post.types'
 import { Post } from './Post'
 
 interface Props {
@@ -17,6 +17,7 @@ export function Posts({ posts }: Props) {
           count_likes,
           count_views,
           id,
+          preview,
           user: { username },
         }) => (
           <Post
@@ -32,6 +33,7 @@ export function Posts({ posts }: Props) {
             categories={['categories']}
             tags={['tags']}
             text={content}
+            preview={preview}
             title={title}
             key={id}
           />

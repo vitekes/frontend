@@ -1,7 +1,7 @@
-import squrle from 'assets/sqarle.png'
 import Image from 'next/image'
 
-import { IPostProps, TActionsProps } from 'src/types/props.types'
+import type { IPostProps, TActionsProps } from 'src/types/props.types'
+import slicerTxt from 'src/utils/slicer.util'
 import { Actions } from '../Actions/Actions'
 import { Author } from '../Author/Author'
 import { Tags } from '../Tag/Tags'
@@ -17,33 +17,29 @@ export function Post({
   text,
   tags,
   title,
+  preview,
   actions: { actionsInfo },
 }: TProps) {
   return (
     <article className='post'>
       <div className='post__info'>
-        <Author author={author} />
-        <hr />
-        <Title tag='h3'>{title}</Title>
-        <section className='post__categories'>Категория</section>
-        <Tags tags={tags} />
-        <p>
-          {text.slice(0, 250)}
-          {text.length > 250 && '...'}
-        </p>
+        <div className='post__container'>
+          <Author author={author} />
+          <hr />
+          <Title tag='h3'>{title}</Title>
+          <section className='post__categories'>Категория</section>
+          <Tags tags={tags} />
+          <p>{slicerTxt(text)}</p>
+        </div>
 
         <Actions actionsInfo={actionsInfo} />
       </div>
-      <div className='post__images'>
+
+      {preview && (
         <div className='post__img'>
-          <Image
-            src={squrle}
-            width={squrle.width}
-            height={squrle.height}
-            alt='Image'
-          />
+          <Image src={preview} width={250} height={500} alt='Image' />
         </div>
-      </div>
+      )}
     </article>
   )
 }

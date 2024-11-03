@@ -13,6 +13,7 @@ export interface IPostProps {
   tags: string[]
   title: string
   text: string
+  preview: string | null
 }
 export interface IAlbumProps extends IPostProps {
   images: string

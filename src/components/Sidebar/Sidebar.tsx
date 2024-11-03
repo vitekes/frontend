@@ -1,9 +1,14 @@
 'use client'
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import getProfilePage from 'src/utils/getProfilePath'
 import './Sidebar.sass'
-import { HomeSidebar } from './pages/HomeSidebar'
-import { ProfileSidebar } from './pages/ProfileSidebar'
+const HomeSidebar = dynamic(() =>
+  import('./pages/HomeSidebar').then(mod => mod.HomeSidebar),
+)
+const ProfileSidebar = dynamic(() =>
+  import('./pages/ProfileSidebar').then(mod => mod.ProfileSidebar),
+)
 
 export function Sidebar() {
   const path = usePathname()

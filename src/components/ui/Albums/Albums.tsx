@@ -1,4 +1,4 @@
-import { IAlbum } from 'src/types/album.types'
+import type { IAlbum } from 'src/types/album.types'
 import { Album } from './Album'
 import './Albums.sass'
 export function Albums({ albums }: { albums: IAlbum[] }) {

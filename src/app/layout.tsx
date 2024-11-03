@@ -3,12 +3,16 @@ import type { ReactNode } from 'react'
 import 'src/styles/global.sass'
 
 import localFont from 'next/font/local'
-import { Footer } from 'src/components/Footer/Footer'
 import { Header } from 'src/components/Header/Header'
 import { MoreContent } from 'src/components/MoreContent/MoreContent'
 import { Sidebar } from 'src/components/Sidebar/Sidebar'
 import { CLIENT_URL } from 'src/constants/constants'
-import { LANGUAGES, SITE_NAME } from 'src/constants/seo.constants'
+import { SITE_NAME } from 'src/constants/seo.constants'
+const Footer = dynamic(() =>
+  import('src/components/Footer/Footer').then(mod => mod.Footer),
+)
+
+import dynamic from 'next/dynamic'
 import Providers from 'src/providers/Providers'
 
 const bold = localFont({
@@ -27,9 +31,9 @@ const medium = localFont({
   weight: '500',
 })
 
-export async function generateStaticParams() {
-  return LANGUAGES.map((lng) => ({ lng }))
-}
+// export async function generateStaticParams() {
+//   return LANGUAGES.map(lng => ({ lng }))
+// }
 
 export const metadata: Metadata = {
   title: {
@@ -81,22 +85,24 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: '#FFFFFF',
 }
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { lng },
-}: Readonly<{
+}: {
   children: ReactNode
-  params: { lng: string }
-}>) {
+  params: { locale: string }
+}) {
+  // Providing all messages to the client
+  // side is the easiest way to get started
+
   return (
-    <html lang={lng}>
+    <html lang='ru'>
       <body className={(bold.className, regular.className, medium.className)}>
         <Providers>
           <div className='wrapper'>
             <Header />
             <MoreContent />
             <div className='container content'>
-              <main className=''>{children}</main>
+              <main>{children}</main>
               <Sidebar />
             </div>
             <Footer />

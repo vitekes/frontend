@@ -1,10 +1,12 @@
 import appRootPath from 'app-root-path'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    defaultLocale: 'ru',
-    locales: ['en', 'ru'],
-  },
+  // i18n: {
+  //   defaultLocale: 'ru',
+  //   locales: ['en', 'ru'],
+  //   localeDetection: true,
+  // },
   env: {
     SERVER_URL: process.env.SERVER_URL,
     MEDIA_URL: process.env.MEDIA_URL,
@@ -28,6 +30,13 @@ const nextConfig = {
     }
     return config
   },
+  async rewrites() {
+    return [
+      {
+        source: '/media/uploads/:path*',
+        destination: `${process.env.MEDIA_URL}/media/uploads/:path*`,
+      },
+    ]
+  },
 }
-
 export default nextConfig

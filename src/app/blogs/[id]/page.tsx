@@ -1,11 +1,10 @@
 'use server'
 import { Blog } from 'src/components/Blog/Blog'
-import albumService from 'src/services/album.service'
+import postService from 'src/services/post.service'
 async function getData() {
-  const results = await albumService.getAll()
+  const results = await postService.getAll()
   return results
 }
-export const revalidate = 60
 
 export default async function page() {
   const data = await getData()

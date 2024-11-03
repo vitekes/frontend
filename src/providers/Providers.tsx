@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { type ReactNode, useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 export default function Providers({ children }: { children: ReactNode }) {
@@ -21,6 +21,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     <QueryClientProvider client={client}>
       {children}
       <Toaster />
+
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
