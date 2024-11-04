@@ -23,12 +23,27 @@ export const useProfileTabs = create<TTabs>()(
       tabActive: 0,
       setTab: (num: number) =>
         set(({ tabActive }) => {
-          if (tabActive > 3 && tabActive < 0) return { tabActive: 1 }
+          if (tabActive > 1 && tabActive < 0) return { tabActive: 1 }
           return { tabActive: num }
         }),
     }),
     {
       name: 'profile-tabs',
+    },
+  ),
+)
+export const useBlogTabs = create<TTabs>()(
+  persist(
+    set => ({
+      tabActive: 0,
+      setTab: (num: number) =>
+        set(({ tabActive }) => {
+          if (tabActive > 3 && tabActive < 0) return { tabActive: 1 }
+          return { tabActive: num }
+        }),
+    }),
+    {
+      name: 'blog-tabs',
     },
   ),
 )

@@ -2,18 +2,18 @@ import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import 'src/styles/global.sass'
 
+import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 import { Header } from 'src/components/Header/Header'
 import { MoreContent } from 'src/components/MoreContent/MoreContent'
 import { Sidebar } from 'src/components/Sidebar/Sidebar'
 import { CLIENT_URL } from 'src/constants/constants'
 import { SITE_NAME } from 'src/constants/seo.constants'
+import Providers from 'src/providers/Providers'
+import { Main } from './Main'
 const Footer = dynamic(() =>
   import('src/components/Footer/Footer').then(mod => mod.Footer),
 )
-
-import dynamic from 'next/dynamic'
-import Providers from 'src/providers/Providers'
 
 const bold = localFont({
   src: './fonts/Manrope-Bold.ttf',
@@ -91,9 +91,6 @@ export default async function RootLayout({
   children: ReactNode
   params: { locale: string }
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
-
   return (
     <html lang='ru'>
       <body className={(bold.className, regular.className, medium.className)}>
@@ -102,7 +99,7 @@ export default async function RootLayout({
             <Header />
             <MoreContent />
             <div className='container content'>
-              <main>{children}</main>
+              <Main>{children}</Main>
               <Sidebar />
             </div>
             <Footer />

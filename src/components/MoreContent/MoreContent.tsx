@@ -1,11 +1,11 @@
 'use client'
 import { usePathname } from 'next/navigation'
-import getProfilePage from 'src/utils/getProfilePath'
+import getNeedsSidebar from 'src/utils/getProfilePath'
 import { UserMoreContent } from './UserMoreContent'
 
 export function MoreContent() {
   const path = usePathname()
-  const { isMain, isProfile } = getProfilePage(path)
+  const { isMain, isProfile } = getNeedsSidebar(path)
 
   switch (true) {
     case isMain:

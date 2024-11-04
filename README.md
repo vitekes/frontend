@@ -1,8 +1,9 @@
-<h1>Vifyx web. site | Next.js</h1>
+<h1>Vifyx Frontend | Next.js</h1>
 </hr>
-<h2>TODO:</h2>
+DEMO
+<!-- <h2>TODO:</h2>
 <ul>
-	<li> - [x|] Add UI components</li>
+	<li> - [x] Add UI components</li>
 	<li> - [ ] Add authorization</li>
 	<li> - [x] Add types</li>
 	<li> - [x] Add services</li>
@@ -12,4 +13,4 @@
 	<li> - [ ] Configuration Nginx</li>
 	<li> - [ ] Package.json META</li>
 	<li> - [ ] CI/CD</li>
-</ul>
+</ul> -->

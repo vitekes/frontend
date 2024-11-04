@@ -13,18 +13,18 @@ type TProps = {
 } & IPostProps
 
 export function Post({
-  author,
   text,
   tags,
   title,
   preview,
+  user: { avatar, first_name, last_name },
   actions: { actionsInfo },
 }: TProps) {
   return (
     <article className='post'>
       <div className='post__info'>
         <div className='post__container'>
-          <Author author={author} />
+          <Author author={`${first_name} ${last_name}`} avatar={avatar} />
           <hr />
           <Title tag='h3'>{title}</Title>
           <section className='post__categories'>Категория</section>

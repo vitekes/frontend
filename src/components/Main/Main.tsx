@@ -4,7 +4,6 @@ import { Posts } from 'ui/Post/Posts'
 import './Main.sass'
 
 import { usePosts } from 'src/hooks/usePosts'
-import QueryMiddleware from 'src/providers/query-middleware'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
 
@@ -19,9 +18,9 @@ export function Main({ initData }: { initData: IResponse<IPost> }) {
         tabActive={tabActive}
         tabs={['Все подряд', 'Отслеживаемые']}
       /> */}
-      <QueryMiddleware filters={posts}>
-        <Posts posts={posts.data.results} />
-      </QueryMiddleware>
+      {/* <QueryMiddleware filters={posts}> */}
+      <Posts posts={posts.data.results} />
+      {/* </QueryMiddleware> */}
     </div>
   )
 }

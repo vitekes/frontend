@@ -18,7 +18,7 @@ export function Posts({ posts }: Props) {
           count_views,
           id,
           preview,
-          user: { username },
+          user,
         }) => (
           <Post
             actions={{
@@ -29,7 +29,7 @@ export function Posts({ posts }: Props) {
                 views: count_views,
               },
             }}
-            author={username}
+            user={user}
             categories={['categories']}
             tags={['tags']}
             text={content}

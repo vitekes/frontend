@@ -1,8 +1,23 @@
+import type { IUserElement } from './user.types'
+
 export interface IResponse<T> {
   count: number
   next: string
   previous: null
   results: T[]
+}
+export interface IGlobalLines {
+  id: number
+  title: string
+  description: string
+  language: TLanguage
+  user: IUserElement
+  date: Date
+  count_comments: number
+  count_views: number
+  count_likes: number
+  namespace: string
+  preview: string
 }
 export type TResponse<T> = {
   length: number

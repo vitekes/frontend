@@ -69,9 +69,10 @@ export default async function Page({
   return (
     <>
       <Album
-        author={user.username}
+        user={user}
         title={title}
         images={preview}
+        preview={preview}
         categories={['']}
         tags={['']}
         text={description}

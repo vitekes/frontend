@@ -1,19 +1,6 @@
-import type { TLanguage } from './global.types'
-import { IUserElement } from './user.types'
+import type { IGlobalLines } from './global.types'
 
-export interface IPost {
-  id: number
-  title: string
-  content: string
-  preview: string | null
-  language: TLanguage
-  user: IUserElement
-  count_views: number
-  count_comments: number
-  count_likes: number
-  namespace: string
-  date: Date
-}
+export interface IPost extends IGlobalLines {}
 export interface IUniqPost extends IPost {
   tags: string[]
   pinned_comment: number | null

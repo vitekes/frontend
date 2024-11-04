@@ -1,3 +1,5 @@
+import type { IUserElement } from './user.types'
+
 export type TActionsProps = {
   actionsInfo: {
     date: Date
@@ -8,12 +10,12 @@ export type TActionsProps = {
 }
 
 export interface IPostProps {
-  author: string
   categories: string[]
   tags: string[]
   title: string
   text: string
   preview: string | null
+  user: IUserElement
 }
 export interface IAlbumProps extends IPostProps {
   images: string

@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { CLIENT_URL } from 'src/constants/constants'
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/*', '/profile'],
+        disallow: ['/login', '/register', '/profile'],
       },
     ],
     sitemap: `${CLIENT_URL}/sitemap.xml`,

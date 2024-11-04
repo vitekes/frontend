@@ -5,7 +5,9 @@ import type { IResponse } from 'src/types/global.types'
 class ContestService {
   private readonly BASE_URL = '/contests'
   public async getAll(): Promise<IResponse<IContest>> {
-    const { data } = await axiosClassic.get(this.BASE_URL + '/')
+    const { data } = await axiosClassic.get<IResponse<IContest>>(
+      this.BASE_URL + '/',
+    )
     return data
   }
   public async getOne(id: number): Promise<{ data: IContest; status: number }> {

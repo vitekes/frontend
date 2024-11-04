@@ -15,6 +15,7 @@ export function Post({
     count_comments: comments,
     count_likes: likes,
     count_views: views,
+    user: { avatar },
   },
 }: {
   post: IUniqPost
@@ -22,7 +23,7 @@ export function Post({
   return (
     <div className='postu'>
       <Title>{title}</Title>
-      <Author author='Test User' />
+      <Author author='Test User' avatar={avatar} />
       <Tags tags={tags} />
       <Image
         alt='Photo'

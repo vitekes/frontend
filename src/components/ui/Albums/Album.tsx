@@ -14,7 +14,7 @@ type Props = {
   id: number
 } & IAlbumProps
 export const Album = ({
-  author,
+  user: { last_name, first_name, avatar },
   categories,
   text,
   tags,
@@ -28,7 +28,7 @@ export const Album = ({
     <NeedRoute link={`/albums/${id}`} need={needRoute}>
       <article className={`album ${needRoute && 'album__route'}`}>
         <div className='album__info'>
-          <Author author={author} />
+          <Author author={`${first_name} ${last_name}`} avatar={avatar} />
 
           <hr />
           <Title tag='h3'>{title}</Title>

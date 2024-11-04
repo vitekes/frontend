@@ -29,13 +29,15 @@ body
 	height: 100%
 .content
 	flex-grow: 1
+
+
 main
-	width: calc( 100% - 400px )
-	
-	// padding: 20px
-	
-	float: left
-	
+	&.main-with-sidebar
+		width: calc( 100% - 400px )
+		float: left
+	&.main-without-sidebar
+		width: 100%
+
 .wrapper
 	display: flex
 	flex-direction: column

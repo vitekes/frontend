@@ -1,6 +1,6 @@
 {
   "name": "vifyx",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "author": {
     "name": "Kirill Vegele",
@@ -15,7 +15,8 @@
   },
   "engines": {
     "node": ">=22.7.0",
-    "yarn": ">=1.22.22"
+    "yarn": ">=1.22.22",
+    "bun": ">=1.1.26"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.59.0",
