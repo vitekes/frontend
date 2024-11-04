@@ -7,16 +7,12 @@ const nextConfig = {
   //   locales: ['en', 'ru'],
   //   localeDetection: true,
   // },
-  env: {
-    SERVER_URL: process.env.SERVER_URL,
-    MEDIA_URL: process.env.MEDIA_URL,
-    DOMAIN: process.env.DOMAIN,
-  },
+
   images: {
     remotePatterns: [
       {
-        protocol: process.env.PROTOCOL,
-        hostname: process.env.DOMAIN,
+        protocol: process.env.NEXT_PUBLIC_PROTOCOL,
+        hostname: process.env.NEXT_PUBLIC_DOMAIN,
         port: '',
         pathname: '/media/**',
       },

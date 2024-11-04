@@ -1,9 +1,12 @@
 import logo from 'assets/logo.svg'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import './Header.sass'
-import { HeaderActions } from './HeaderActions'
 import { HeaderNav } from './HeaderNav'
+const HeaderActions = dynamic(() =>
+  import('./HeaderActions').then(mod => mod.HeaderActions),
+)
 export function Header() {
   return (
     <header className='header'>

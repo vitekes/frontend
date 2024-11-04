@@ -18,14 +18,14 @@ export function AuthForm({ isLogin }: AuthFormProps) {
         <Field
           label='Имя'
           type='text'
-          placeholder='Enter username: '
+          placeholder='Введите имя'
           {...register('username', { required: true })}
         />
 
         <Field
           label='Пароль'
           type='password'
-          placeholder='Enter password: '
+          placeholder='Введите пароль'
           {...register('password', { required: true })}
         />
 

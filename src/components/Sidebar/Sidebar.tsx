@@ -1,22 +1,41 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
-import getNeedsSidebar from 'src/utils/getProfilePath'
+import getNeedsSidebar, {
+  type IGetNeedsSidebar,
+} from 'src/utils/getProfilePath'
 import './Sidebar.sass'
-const HomeSidebar = dynamic(() =>
-  import('./pages/HomeSidebar').then(mod => mod.HomeSidebar),
-)
-const ProfileSidebar = dynamic(() =>
-  import('./pages/ProfileSidebar').then(mod => mod.ProfileSidebar),
-)
 
-export function Sidebar() {
+const Sidebars = ({
+  is: { isBlog, isMain, isProfile },
+}: {
+  is: IGetNeedsSidebar
+}) => {
+  if (isBlog) {
+    const BlogSidebar = dynamic(() =>
+      import('./pages/Blog.sidebar').then(mod => mod.BlogSidebar),
+    )
+    return <BlogSidebar />
+  } else if (isMain) {
+    const HomeSidebar = dynamic(() =>
+      import('./pages/Home.sidebar').then(mod => mod.HomeSidebar),
+    )
+    return <HomeSidebar />
+  } else if (isProfile) {
+    const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
+    return <ProfileSidebar />
+  } else {
+    return <></>
+  }
+}
+
+export const Sidebar = () => {
   const path = usePathname()
-  const { isMain, isProfile, needSideBar } = getNeedsSidebar(path)
+  const { needSideBar, ...is } = getNeedsSidebar(path)
   if (!needSideBar) return <></>
   return (
     <aside className='sidebar'>
-      {isMain ? <HomeSidebar /> : isProfile && <ProfileSidebar />}
+      <Sidebars is={is} />
     </aside>
   )
 }

@@ -1,6 +1,6 @@
 import { Tags } from 'ui/Tag/Tags'
-import { SidebarAuthor } from './../SidebarAuthor'
-import { SidebarPost } from './../SidebarPost'
+import { SidebarAuthor } from './Author.sidebar'
+import { SidebarPost } from './Post.sidebar'
 const posts = [
   {
     author: 'Иван Иванов',

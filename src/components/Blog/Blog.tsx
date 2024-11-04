@@ -1,14 +1,15 @@
 'use client'
-import { useProfileTabs } from 'src/store/store'
-
-import { Posts } from 'ui/Post/Posts'
-import { Tabs } from 'ui/Tab/Tabs'
-import { Abouts } from './BlogPages/Abouts'
+import { useBlogTabs } from 'src/store/store'
 
 import dynamic from 'next/dynamic'
 import { usePosts } from 'src/hooks/usePosts'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
+import { Posts } from 'ui/Post/Posts'
+import { Tabs } from 'ui/Tab/Tabs'
+const Abouts = dynamic(() =>
+  import('./BlogPages/Abouts').then(mod => mod.Abouts),
+)
 const AlbumsTabs = dynamic(() =>
   import('./BlogPages/Albums').then(mod => mod.AlbumsTabs),
 )
@@ -16,8 +17,8 @@ const Quests = dynamic(() =>
   import('./BlogPages/Quests').then(mod => mod.Quests),
 )
 
-export function Blog({ initData }: { initData: IResponse<IPost> }) {
-  const { setTab, tabActive } = useProfileTabs(state => state)
+export const Blog = ({ initData }: { initData: IResponse<IPost> }) => {
+  const { setTab, tabActive } = useBlogTabs(state => state)
 
   const {
     data: { results },

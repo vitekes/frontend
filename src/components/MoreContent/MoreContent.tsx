@@ -1,18 +1,17 @@
 'use client'
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import getNeedsSidebar from 'src/utils/getProfilePath'
-import { UserMoreContent } from './UserMoreContent'
 
 export function MoreContent() {
   const path = usePathname()
-  const { isMain, isProfile } = getNeedsSidebar(path)
-
-  switch (true) {
-    case isMain:
-      return <></>
-    case isProfile:
-      return <UserMoreContent />
-    default:
-      return <></>
+  const { isBlog } = getNeedsSidebar(path)
+  if (isBlog) {
+    const UserMoreContent = dynamic(() =>
+      import('./UserMoreContent').then(mod => mod.UserMoreContent),
+    )
+    return <UserMoreContent />
+  } else {
+    return <></>
   }
 }
