@@ -1,13 +1,16 @@
 import { axiosClassic } from 'src/api/axios'
+import { initialQueryParams } from 'src/constants/constants'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost, IUniqPost } from 'src/types/post.types'
 
 class PostService {
   private readonly BASE_URL = '/posts'
-  public async getAll(): Promise<IResponse<IPost>> {
-    const { data } = await axiosClassic<IResponse<IPost>>(
-      this.BASE_URL + '/?page=2&perPage=2',
-    )
+  public async getAll(
+    queryData = initialQueryParams.queryParams,
+  ): Promise<IResponse<IPost>> {
+    const { data } = await axiosClassic<IResponse<IPost>>(this.BASE_URL + '/', {
+      params: queryData,
+    })
     return data
   }
   public async getOne(

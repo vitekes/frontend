@@ -6,6 +6,7 @@ import './Main.sass'
 import { usePosts } from 'src/hooks/usePosts'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
+import Pagination from '../Pagintaion/Pagination'
 
 export function Main({ initData }: { initData: IResponse<IPost> }) {
   // const { tabActive, setTab } = useMainTabs(state => state)
@@ -20,6 +21,7 @@ export function Main({ initData }: { initData: IResponse<IPost> }) {
       /> */}
       {/* <QueryMiddleware filters={posts}> */}
       <Posts posts={posts.data.array} />
+      <Pagination />
       {/* </QueryMiddleware> */}
     </div>
   )

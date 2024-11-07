@@ -1,7 +1,3 @@
-export const getHeaders = () => ({
-  'Content-Type': 'application/json',
-})
-
 export const errorCatch =
   // eslint-disable-next-line
   (error: any): string => {

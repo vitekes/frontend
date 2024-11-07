@@ -1,16 +1,34 @@
-@import "src/styles/_system.sass"
+@import "vars"
 .btn
-	height: 40px
-	background: $color
-	border-radius: 5px
-	padding: 10px 28px
-
-	color: $background
 	font-weight: 500
-	font-size: 14px
 	letter-spacing: 1px
 	line-height: 19.12px
-
 	transition: transform .4s
 	&:hover
 		transform: scale(0.95)
+	&.btn__pagination
+		width: 40px
+		height: 40px
+		border: 1px solid $accent
+		border-radius: 8px
+		&.btn__disabled
+			background: $accent !important
+			color: white
+	&.btn__black
+		color: $background
+		background: $color
+	&.btn__big
+		height: 60px
+		width: 100%
+		font-size: 20px
+	&.btn__medium
+		height: 40px
+		border-radius: 5px
+		padding: 10px 28px
+
+		font-size: 14px
+	&.btn__small
+		height: 30px
+		width: 200px
+
+		

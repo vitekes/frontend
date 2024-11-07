@@ -1,3 +1,4 @@
+import { initialQueryParams } from 'src/constants/constants'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { IStore, TTabs } from './store.types'
@@ -47,12 +48,6 @@ export const useBlogTabs = create<TTabs>()(
     },
   ),
 )
-const initialQueryParams: Pick<IStore, 'queryParams'> = {
-  queryParams: {
-    page: 1,
-    perPage: 9,
-  },
-}
 
 export const useFiltersStore = create<IStore>(set => ({
   ...initialQueryParams,

@@ -27,7 +27,9 @@ export function Contest({
         />
       )}
       <p className='contest__description'>{slicerTxt(description)}</p>
-      <Button>Детали конкурса</Button>
+      <Button size='md' variant='black'>
+        Детали конкурса
+      </Button>
     </article>
   )
 }

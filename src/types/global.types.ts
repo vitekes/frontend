@@ -8,7 +8,7 @@ export interface IGlobalLines {
   id: number
   title: string
   description: string
-  language: TLanguage
+  language: EnumLanguage
   user: IUserElement
   date: Date
   count_comments: number
@@ -29,8 +29,16 @@ export interface IQueryLayout<T> {
   isError: boolean
   error: Error | null
 }
-export type TLanguage = 'english' | 'russian'
-export type TItemType = 'post' | 'album' | 'quest'
+export enum EnumLanguage {
+  ENGLISH = 'english',
+  RUSSIAN = 'russian',
+}
+export enum EnumItemType {
+  POST = 'post',
+  ALBUM = 'album',
+  QUEST = 'quest',
+}
+
 export type TPagination = {
   page?: string | number
   perPage: string | number

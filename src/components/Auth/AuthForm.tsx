@@ -37,7 +37,7 @@ export function AuthForm({ isLogin }: AuthFormProps) {
 					className={styles.recaptcha}
 				/> */}
 
-        <Button type='submit' disabled={isLoading}>
+        <Button size='md' variant='black' type='submit' disabled={isLoading}>
           {isLoading ? 'Загрузка...' : isLogin ? 'Войти' : 'Зарегистрироваться'}
         </Button>
 

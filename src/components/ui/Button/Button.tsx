@@ -1,30 +1,35 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import './Button.sass'
 
+import cn from 'clsx'
+
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  isCircle?: boolean
+  variant?: 'black' | 'accent' | 'grey'
+  size?: 'bg' | 'md' | 'sm'
+  isPagination?: boolean
 }
 
 export function Button({
   children,
-  // variant = 'primary',
-  // isCircle,
+  variant,
+  size,
+  isPagination = false,
+  disabled,
   ...rest
 }: Props) {
+  const classes = {
+    btn__pagination: isPagination,
+    btn__black: variant === 'black',
+    btn__accent: variant === 'accent',
+    btn__grey: variant === 'grey',
+    btn__medium: size === 'md',
+    btn__small: size === 'sm',
+    btn__big: size === 'bg',
+    btn__disabled: disabled,
+  }
   return (
-    <button
-      // className={cn(
-      // 	styles.button,
-      // 	styles[variant],
-      // 	{
-      // 		[styles.circle]: isCircle,
-      // 	},
-      // 	className
-      // )}
-      {...rest}
-      className='btn'
-    >
+    <button {...rest} className={cn('btn', classes)}>
       {children}
     </button>
   )
