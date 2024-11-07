@@ -9,7 +9,7 @@ export function Contests({ initData }: { initData: IResponse<IContest> }) {
 
   return (
     <div className='contests'>
-      {data.results.map(contest => (
+      {data.array.map(contest => (
         <Contest key={contest.id} data={contest} />
       ))}
     </div>

@@ -8,6 +8,7 @@ class ContestService {
     const { data } = await axiosClassic.get<IResponse<IContest>>(
       this.BASE_URL + '/',
     )
+
     return data
   }
   public async getOne(id: number): Promise<{ data: IContest; status: number }> {

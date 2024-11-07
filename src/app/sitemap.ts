@@ -12,25 +12,25 @@ async function getData() {
     contests: await contestService.getAll(),
     quests: await questService.getAll(),
   }
-  const contests = serverData.contests.results.map(({ id }) => ({
+  const contests = serverData.contests.array.map(({ id }) => ({
     url: `${CLIENT_URL}/contests/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const albums = serverData.albums.results.map(({ id }) => ({
+  const albums = serverData.albums.array.map(({ id }) => ({
     url: `${CLIENT_URL}/albums/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const quests = serverData.quests.results.map(({ id }) => ({
+  const quests = serverData.quests.array.map(({ id }) => ({
     url: `${CLIENT_URL}/quests/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const posts = serverData.posts.results.map(({ id }) => ({
+  const posts = serverData.posts.array.map(({ id }) => ({
     url: `${CLIENT_URL}/posts/${id}`,
     priority: 0.6,
   }))

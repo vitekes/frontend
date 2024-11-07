@@ -6,8 +6,8 @@ import { Albums } from 'ui/Albums/Albums'
 
 export function AlbumsPage({ initData }: { initData: IResponse<IAlbum> }) {
   const {
-    data: { results },
+    data: { array },
   } = useAlbums(initData)
 
-  return <Albums albums={results} />
+  return <Albums albums={array} />
 }

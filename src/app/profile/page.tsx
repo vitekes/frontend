@@ -1,4 +1,6 @@
+import Profile from 'src/components/Profile/Profile'
+
 const Page = () => {
-  return <div>Page</div>
+  return <Profile />
 }
 export default Page

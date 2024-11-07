@@ -42,9 +42,9 @@ export async function generateMetadata({
   }
 }
 export async function generateStaticParams() {
-  const { results } = await albumService.getAll()
+  const { array } = await albumService.getAll()
 
-  return results.map(({ id }) => ({
+  return array.map(({ id }) => ({
     id: id.toString(),
   }))
 }

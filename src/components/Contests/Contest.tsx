@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { MEDIA_URL } from 'src/constants/constants'
 import type { IContest } from 'src/types/contest.types'
 import { convertDateRadius } from 'src/utils/convertDate'
 import slicerTxt from 'src/utils/slicer.util'
@@ -20,7 +19,7 @@ export function Contest({
       </section>
       {preview && (
         <Image
-          src={`${MEDIA_URL}${preview}`}
+          src={`${preview}`}
           width={1128}
           height={365}
           className='contest__img'

@@ -9,5 +9,5 @@ export function AlbumsTabs() {
     queryFn: () => albumService.getAll(),
   })
   const loaders = isLoading || isPending
-  return loaders ? <Loader /> : data && <Albums albums={data?.results} />
+  return loaders ? <Loader /> : data && <Albums albums={data?.array} />
 }

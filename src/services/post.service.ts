@@ -5,7 +5,9 @@ import type { IPost, IUniqPost } from 'src/types/post.types'
 class PostService {
   private readonly BASE_URL = '/posts'
   public async getAll(): Promise<IResponse<IPost>> {
-    const { data } = await axiosClassic<IResponse<IPost>>(this.BASE_URL + '/')
+    const { data } = await axiosClassic<IResponse<IPost>>(
+      this.BASE_URL + '/?page=2&perPage=2',
+    )
     return data
   }
   public async getOne(

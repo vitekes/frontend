@@ -18,9 +18,9 @@ async function getOnePost(id: number) {
 }
 
 export async function generateStaticParams() {
-  const { results } = await getAllPosts()
+  const { array } = await getAllPosts()
 
-  return results.map(({ id }) => ({
+  return array.map(({ id }) => ({
     id,
   }))
 }

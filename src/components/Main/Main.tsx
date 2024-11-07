@@ -19,7 +19,7 @@ export function Main({ initData }: { initData: IResponse<IPost> }) {
         tabs={['Все подряд', 'Отслеживаемые']}
       /> */}
       {/* <QueryMiddleware filters={posts}> */}
-      <Posts posts={posts.data.results} />
+      <Posts posts={posts.data.array} />
       {/* </QueryMiddleware> */}
     </div>
   )

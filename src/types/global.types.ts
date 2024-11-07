@@ -1,10 +1,8 @@
 import type { IUserElement } from './user.types'
 
 export interface IResponse<T> {
-  count: number
-  next: string
-  previous: null
-  results: T[]
+  array: T[]
+  length: number
 }
 export interface IGlobalLines {
   id: number
