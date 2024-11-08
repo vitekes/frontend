@@ -14,10 +14,9 @@ type Props = {
   id: number
 } & IAlbumProps
 export const Album = ({
-  user: { last_name, first_name, avatar },
-  categories,
   text,
   tags,
+  user: { last_name, first_name, avatar },
   title,
   images,
   id,
@@ -32,11 +31,11 @@ export const Album = ({
 
           <hr />
           <Title tag='h3'>{title}</Title>
-          <section className='album__categories'>
+          {/* <section className='album__categories'>
             {categories.map((str, index) => (
               <span key={index}>{str}</span>
             ))}
-          </section>
+          </section> */}
           {/* {!isSub ? (
             <> */}
           {tags.length !== 0 && <Tags tags={tags} />}

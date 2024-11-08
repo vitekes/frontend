@@ -11,21 +11,23 @@ const Sidebars = ({
 }: {
   is: IGetNeedsSidebar
 }) => {
-  if (isBlog) {
-    const BlogSidebar = dynamic(() =>
-      import('./pages/Blog.sidebar').then(mod => mod.BlogSidebar),
-    )
-    return <BlogSidebar />
-  } else if (isMain) {
-    const HomeSidebar = dynamic(() =>
-      import('./pages/Home.sidebar').then(mod => mod.HomeSidebar),
-    )
-    return <HomeSidebar />
-  } else if (isProfile) {
-    const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
-    return <ProfileSidebar />
-  } else {
-    return <></>
+  switch (true) {
+    case isBlog:
+      const BlogSidebar = dynamic(() =>
+        import('./pages/Blog.sidebar').then(mod => mod.BlogSidebar),
+      )
+      return <BlogSidebar />
+    case isMain:
+      const HomeSidebar = dynamic(() =>
+        import('./pages/Home.sidebar').then(mod => mod.HomeSidebar),
+      )
+      return <HomeSidebar />
+    case isProfile:
+      const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
+      return <ProfileSidebar />
+
+    default:
+      return <></>
   }
 }
 

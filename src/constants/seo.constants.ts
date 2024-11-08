@@ -1,2 +1,4 @@
 export const SITE_NAME: string = 'Vifyx',
-  LANGUAGES = ['en', 'ru']
+  /** @knipignore */
+  LANGUAGES = ['en', 'ru'],
+  DESCRIPTION: string = ''

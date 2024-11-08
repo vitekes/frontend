@@ -8,11 +8,7 @@ interface Props extends PropsWithChildren {
 
 export function NeedRoute({ children, link, need }: Props) {
   if (need) {
-    return (
-      <Link href={link} className='link'>
-        {children}
-      </Link>
-    )
+    return <Link href={link}>{children}</Link>
   } else {
     return children
   }

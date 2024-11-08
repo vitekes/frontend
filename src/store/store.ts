@@ -3,21 +3,22 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { IStore, TTabs } from './store.types'
 
-export const useMainTabs = create<TTabs>()(
-  persist(
-    set => ({
-      tabActive: 0,
-      setTab: (num: number) =>
-        set(({ tabActive }) => {
-          if (tabActive > 1 && tabActive < 0) return { tabActive: 1 }
-          return { tabActive: num }
-        }),
-    }),
-    {
-      name: 'main-tabs',
-    },
-  ),
-)
+// export const useMainTabs = create<TTabs>()(
+//   persist(
+//     set => ({
+//       tabActive: 0,
+//       setTab: (num: number) =>
+//         set(({ tabActive }) => {
+//           if (tabActive > 1 && tabActive < 0) return { tabActive: 1 }
+//           return { tabActive: num }
+//         }),
+//     }),
+//     {
+//       name: 'main-tabs',
+//     },
+//   ),
+// )
+
 export const useProfileTabs = create<TTabs>()(
   persist(
     set => ({

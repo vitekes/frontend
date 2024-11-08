@@ -17,11 +17,10 @@ export interface IGlobalLines {
   namespace: string
   preview: string
 }
-export type TResponse<T> = {
-  length: number
-  array: T[]
+export type TTag = {
+  id: number
+  title: string
 }
-
 export interface IQueryLayout<T> {
   data: T
   isLoading: boolean

@@ -1,17 +1,18 @@
 import { MetadataRoute } from 'next'
-import { SITE_NAME } from 'src/constants/seo.constants'
+import { BACKGROUND, GLOBAL_BACKGROUND } from 'src/constants/colors.constants'
+import { DESCRIPTION, SITE_NAME } from 'src/constants/seo.constants'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    theme_color: '#FFFFFF',
-    background_color: '#FFFFFF',
+    theme_color: BACKGROUND,
+    background_color: GLOBAL_BACKGROUND,
     scope: '/',
     start_url: '/source=pwa',
     display: 'standalone',
     orientation: 'portrait',
     name: SITE_NAME,
     short_name: SITE_NAME,
-    // description: DESCRIPTION,
+    description: DESCRIPTION,
     // icons: [
     // 	{
     // 		src: "/touch-icons/256x256.png",

@@ -16,7 +16,7 @@ export function Contests({
 }) {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
   const { data, isPending, isFetching, isRefetching } = useQuery({
-    queryKey: ['albums', queryParams],
+    queryKey: ['contests', queryParams],
     queryFn: () => contestService.getAll(queryParams),
     initialData,
     enabled: isFilterUpdated,

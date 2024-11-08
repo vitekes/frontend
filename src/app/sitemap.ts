@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { CLIENT_URL } from 'src/constants/constants'
+import { allItems, CLIENT_URL } from 'src/constants/constants'
 import albumService from 'src/services/album.service'
 import contestService from 'src/services/contest.service'
 import postService from 'src/services/post.service'
@@ -7,10 +7,10 @@ import questService from 'src/services/quest.service'
 
 async function getData() {
   const serverData = {
-    albums: await albumService.getAll(),
-    posts: await postService.getAll(),
-    contests: await contestService.getAll(),
-    quests: await questService.getAll(),
+    albums: await albumService.getAll(allItems),
+    posts: await postService.getAll(allItems),
+    contests: await contestService.getAll(allItems),
+    quests: await questService.getAll(allItems),
   }
   const contests = serverData.contests.array.map(({ id }) => ({
     url: `${CLIENT_URL}/contests/${id}`,

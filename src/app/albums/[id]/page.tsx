@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { allItems } from 'src/constants/constants'
 import albumService from 'src/services/album.service'
 import { Album } from 'ui/Albums/Album'
 
@@ -42,7 +43,7 @@ export async function generateMetadata({
   }
 }
 export async function generateStaticParams() {
-  const { array } = await albumService.getAll()
+  const { array } = await albumService.getAll(allItems)
 
   return array.map(({ id }) => ({
     id: id.toString(),

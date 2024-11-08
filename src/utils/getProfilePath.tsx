@@ -12,6 +12,8 @@ export default function getNeedsSidebar(path: string): IGetNeedsSidebar {
     return { isBlog: true, needSideBar: true }
   } else if (path.includes('/profile')) {
     return { isProfile: true, needSideBar: true }
+  } else if (path.includes('/quests')) {
+    return { needSideBar: true }
   } else {
     return { needSideBar: false }
   }
