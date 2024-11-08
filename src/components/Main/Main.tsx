@@ -3,15 +3,27 @@
 import { Posts } from 'ui/Post/Posts'
 import './Main.sass'
 
-import { usePosts } from 'src/hooks/usePosts'
+import { useQuery } from '@tanstack/react-query'
+import { useFilters } from 'src/hooks/useFilters'
+import postService from 'src/services/post.service'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
 import Pagination from '../Pagintaion/Pagination'
 
-export function Main({ initData }: { initData: IResponse<IPost> }) {
+export function Main({ initialData }: { initialData: IResponse<IPost> }) {
   // const { tabActive, setTab } = useMainTabs(state => state)
-
-  const posts = usePosts(initData)
+  const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
+  const {
+    data: { array, length },
+    isPending,
+    isFetching,
+    isRefetching,
+  } = useQuery({
+    queryKey: ['posts', queryParams],
+    queryFn: () => postService.getAll(queryParams),
+    initialData,
+    enabled: isFilterUpdated,
+  })
   return (
     <div className='main'>
       {/* <Tabs
@@ -20,8 +32,15 @@ export function Main({ initData }: { initData: IResponse<IPost> }) {
         tabs={['Все подряд', 'Отслеживаемые']}
       /> */}
       {/* <QueryMiddleware filters={posts}> */}
-      <Posts posts={posts.data.array} />
-      <Pagination />
+      <Posts
+        isLoading={isPending || isFetching || isRefetching}
+        posts={array}
+      />
+      <Pagination
+        changePage={page => updateQueryParams('page', page.toString())}
+        currentPage={queryParams.page?.toString()}
+        numberPages={length / +queryParams.perPage}
+      />
       {/* </QueryMiddleware> */}
     </div>
   )

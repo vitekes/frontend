@@ -1,11 +1,14 @@
 import type { IPost } from 'src/types/post.types'
+import SkeletonLoader from '../Skeleton/Skeleton'
 import { Post } from './Post'
 
 interface Props {
   posts: IPost[]
+  isLoading?: boolean
 }
 
-export function Posts({ posts }: Props) {
+export function Posts({ posts, isLoading }: Props) {
+  if (isLoading) return <SkeletonLoader />
   return (
     <section className='posts'>
       {posts.map(

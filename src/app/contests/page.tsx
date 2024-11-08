@@ -9,5 +9,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function page() {
   const data = await contestService.getAll()
-  return <Contests initData={data} />
+  return <Contests initialData={data} />
 }

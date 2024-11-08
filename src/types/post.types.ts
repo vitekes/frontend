@@ -1,6 +1,8 @@
 import type { IGlobalLines } from './global.types'
 
-export interface IPost extends IGlobalLines {}
+export interface IPost extends Omit<IGlobalLines, 'description'> {
+  content: string
+}
 export interface IUniqPost extends IPost {
   tags: string[]
   pinned_comment: number | null

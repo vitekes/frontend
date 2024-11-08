@@ -13,5 +13,5 @@ async function getData() {
 }
 export default async function Home() {
   const initialData = await getData()
-  return <Main initData={initialData} />
+  return <Main initialData={initialData} />
 }

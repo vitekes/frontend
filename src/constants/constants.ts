@@ -8,6 +8,6 @@ export const API_URL = process.env.NEXT_PUBLIC_SERVER_URL,
   initialQueryParams: Pick<IStore, 'queryParams'> = {
     queryParams: {
       page: 1,
-      perPage: 3,
+      perPage: 8,
     },
   }

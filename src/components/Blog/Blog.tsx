@@ -2,22 +2,18 @@
 import { useBlogTabs } from 'src/store/store'
 
 import dynamic from 'next/dynamic'
-import { usePosts } from 'src/hooks/usePosts'
 import type { IResponse } from 'src/types/global.types'
 import type { IPost } from 'src/types/post.types'
-import { Posts } from 'ui/Post/Posts'
 import { Tabs } from 'ui/Tab/Tabs'
+import PostsTabs from './BlogPages/Posts'
 
-export const Blog = ({ initData }: { initData: IResponse<IPost> }) => {
+export const Blog = ({ initialData }: { initialData: IResponse<IPost> }) => {
   const { setTab, tabActive } = useBlogTabs(state => state)
 
-  const {
-    data: { array },
-  } = usePosts(initData)
   const tabs = () => {
     switch (tabActive) {
       case 0:
-        return <Posts posts={array} />
+        return <PostsTabs initialData={initialData} />
       case 1:
         const AlbumsTabs = dynamic(() =>
           import('./BlogPages/Albums').then(mod => mod.AlbumsTabs),

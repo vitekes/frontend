@@ -1,17 +1,17 @@
 import type { FC } from 'react'
+import { initialQueryParams } from 'src/constants/constants'
 import './Skeleton.sass'
 
 const SkeletonLoader: FC = () => {
   return (
-    <div className='skeleton grid grid-cols-3 gap-7'>
-      {Array.from({ length: 9 }).map((_, index) => (
-        <div
-          key={index}
-          className='animate-pulse bg-slate-700 rounded-lg h-56 w-full'
-        >
-          <div className='h-full w-full bg-slate-600 rounded-lg'></div>
-        </div>
-      ))}
+    <div className='skeleton'>
+      {Array.from({ length: +initialQueryParams.queryParams.perPage }).map(
+        (_, index) => (
+          <div key={index} className='skeleton__in'>
+            <div className='skeleton__in__in'></div>
+          </div>
+        ),
+      )}
     </div>
   )
 }
