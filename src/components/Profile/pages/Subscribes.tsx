@@ -1,6 +1,5 @@
 import { Heading } from '../../ui/Heading/Heading'
 
-const Subscribes = () => {
+export const Subscribes = () => {
   return <Heading>Подписки</Heading>
 }
-export default Subscribes

@@ -1,18 +1,27 @@
 @import 'vars'
 .profile__blogs
-	display: grid
-	row-gap: 10px
-.profile__blog
-	width: 100%
-	background: $background
-	padding: 25px
-	border-radius: 8px
-	display: flex
-	align-items: center
-	column-gap: 10px
-	font-size: 15px
-	color: $greyTxt
-	font-weight: 400
-	input
-		width: 24px
-		height: 24px
+	button
+		padding: 10px 30px
+		height: 40px
+		border-radius: 5px
+		margin-top: 20px
+	.blogs
+		display: grid
+		row-gap: 10px
+		margin-top: 30px
+		.profile__blog
+			width: 100%
+			background: $background
+			padding: 25px
+			border-radius: 8px
+			display: flex
+			align-items: center
+			column-gap: 10px
+			font-size: 15px
+			color: $greyTxt
+			font-weight: 400
+			input
+				width: 24px
+				height: 24px
+			&.profile__blog-active
+					border: 1px solid $color !important

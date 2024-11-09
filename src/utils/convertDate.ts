@@ -11,8 +11,11 @@ const declOfNum = (
       : cases[number % 10 < 5 ? number % 10 : 5]
   ]
 }
-export const convertDate = (date: Date, locale: Locale = ru): string =>
-  format(date, 'd MMMM yyyy', { locale })
+export const convertDate = (
+  date: Date,
+  formatToConvert: string = 'd MMMM yyyy',
+  locale: Locale = ru,
+): string => format(date, formatToConvert, { locale })
 
 export const convertDateRadius = (
   start_date: Date,

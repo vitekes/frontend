@@ -1,6 +1,5 @@
 import { Heading } from '../../ui/Heading/Heading'
 
-const Privacy = () => {
+export const Privacy = () => {
   return <Heading>Приватность</Heading>
 }
-export default Privacy

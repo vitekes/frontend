@@ -1,6 +1,5 @@
 import { Heading } from '../../ui/Heading/Heading'
 
-const MyProfile = () => {
+export const MyProfile = () => {
   return <Heading>Мой профиль</Heading>
 }
-export default MyProfile
