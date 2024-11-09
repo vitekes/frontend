@@ -6,39 +6,44 @@ import postService from 'src/services/post.service'
 import questService from 'src/services/quest.service'
 import testService from 'src/services/test.service'
 
+class ServerData {
+  public readonly albums = async () =>
+    (await albumService.getAll(allItems)).array
+  public readonly posts = async () => (await postService.getAll(allItems)).array
+  public readonly contests = async () =>
+    (await contestService.getAll(allItems)).array
+  public readonly quests = async () =>
+    (await questService.getAll(allItems)).array
+  public readonly tests = async () => (await testService.getAll(allItems)).array
+}
+
 async function getData() {
-  const serverData = {
-    albums: await albumService.getAll(allItems),
-    posts: await postService.getAll(allItems),
-    contests: await contestService.getAll(allItems),
-    quests: await questService.getAll(allItems),
-    tests: await testService.getAll(allItems),
-  }
-  const contests = serverData.contests.array.map(({ id }) => ({
+  const serverData = new ServerData()
+  const contests = (await serverData.contests()).map(({ id }) => ({
     url: `${CLIENT_URL}/contests/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const tests = serverData.tests.array.map(({ id }) => ({
+  const tests = (await serverData.tests()).map(({ id }) => ({
     url: `${CLIENT_URL}/tests/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const albums = serverData.albums.array.map(({ id }) => ({
+  const albums = (await serverData.albums()).map(({ id }) => ({
     url: `${CLIENT_URL}/albums/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const quests = serverData.quests.array.map(({ id }) => ({
+  const quests = (await serverData.quests()).map(({ id }) => ({
     url: `${CLIENT_URL}/quests/${id}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
-  const posts = serverData.posts.array.map(({ id }) => ({
+  const posts = (await serverData.posts()).map(({ id }) => ({
     url: `${CLIENT_URL}/posts/${id}`,
     priority: 0.6,
   }))

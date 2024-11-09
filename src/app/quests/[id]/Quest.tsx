@@ -10,6 +10,6 @@ const QuestPage = ({ quest }: { quest: IQuestUniq }) => {
     queryFn: async () => (await questService.getOne(quest.data.id)).data,
     initialData: quest,
   })
-  return <Quest quest={data.data} isUnic />
+  return <Quest quest={data.data} isUniq />
 }
 export default QuestPage

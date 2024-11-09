@@ -9,7 +9,7 @@ import './Quests.sass'
 const QuestActions = dynamic(() => import('./QuestActions'))
 
 const Quest = ({
-  isUnic = false,
+  isUniq = false,
   quest: {
     title,
     preview,
@@ -23,11 +23,11 @@ const Quest = ({
   },
 }: {
   quest: IQuest
-  isUnic?: boolean
+  isUniq?: boolean
 }) => {
   const prettyDate = convertDate(new Date(date))
   return (
-    <NeedRoute need={!isUnic} link={`/quests/${id}`}>
+    <NeedRoute need={!isUniq} link={`/quests/${id}`}>
       <article className='quest'>
         <div className='quest__left'>
           <Image src={preview} width={250} height={500} alt='Image' />
