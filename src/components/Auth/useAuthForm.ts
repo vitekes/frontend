@@ -19,6 +19,7 @@ export function useAuthForm(isLogin: boolean) {
     mutationKey: ['login'],
     mutationFn: (data: IFormData) => authService.main('login', data),
     onSuccess() {
+      toast.success('Вы успешно вошли в систему!')
       startTransition(() => {
         reset()
         push('/')
@@ -36,6 +37,7 @@ export function useAuthForm(isLogin: boolean) {
     mutationFn: (data: IFormData) => authService.main('register', data),
     onSuccess() {
       startTransition(() => {
+        toast.success('Вы успешно зарегистрировались!')
         reset()
         push('/')
       })

@@ -4,6 +4,12 @@ export interface IResponse<T> {
   array: T[]
   length: number
 }
+// eslint-disable-next-line
+export interface IArrayRes extends IResponse<IGlobalLines> {}
+export interface IOneRes<T> {
+  status: number
+  data: T
+}
 export interface IGlobalLines {
   id: number
   title: string
@@ -16,6 +22,11 @@ export interface IGlobalLines {
   count_likes: number
   namespace: string
   preview: string
+}
+export type TAnswer = {
+  id: number
+  title: string
+  is_vote: boolean
 }
 export type TTag = {
   id: number
