@@ -1,20 +1,21 @@
-import type { IPost } from 'src/types/post.types'
+import type { IGlobalLines } from 'src/types/global.types'
 import SkeletonLoader from '../Skeleton/Skeleton'
 import { Post } from './Post'
 
 interface Props {
-  posts: IPost[]
+  posts: IGlobalLines[]
   isLoading?: boolean
+  isNeedRouting?: boolean
 }
 
-export function Posts({ posts, isLoading }: Props) {
+export function Posts({ posts, isLoading, isNeedRouting = false }: Props) {
   if (isLoading) return <SkeletonLoader />
   return (
     <section className='posts'>
       {posts.map(
         ({
           title,
-          content,
+          description,
           date,
           count_comments,
           count_likes,
@@ -24,6 +25,8 @@ export function Posts({ posts, isLoading }: Props) {
           user,
         }) => (
           <Post
+            id={id}
+            isNeedRouting={isNeedRouting}
             actions={{
               actionsInfo: {
                 comments: count_comments,
@@ -34,8 +37,8 @@ export function Posts({ posts, isLoading }: Props) {
             }}
             user={user}
             categories={['categories']}
-            tags={['tags']}
-            text={content}
+            tags={[{ title: 'tags', id: 1 }]}
+            text={description}
             preview={preview}
             title={title}
             key={id}

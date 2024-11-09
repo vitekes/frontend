@@ -1,4 +1,5 @@
 import { Tags } from 'ui/Tag/Tags'
+import SidebarTitle from '../SidebarTitle'
 import { SidebarAuthor } from './Author.sidebar'
 import { SidebarPost } from './Post.sidebar'
 const posts = [
@@ -48,11 +49,11 @@ const authors = [
     title: 'Загадки и приключения',
   },
 ]
-export function HomeSidebar() {
+export default function HomeSidebar() {
   return (
     <>
       <section className='sidebar__posts'>
-        <h2 className='frst'>Популярное сейчас</h2>
+        <SidebarTitle isFirst>Популярное сейчас</SidebarTitle>
         {posts.map(({ author, text, title }, index) => (
           <SidebarPost
             index={index}
@@ -64,11 +65,19 @@ export function HomeSidebar() {
         ))}
       </section>
       <section className='sidebar__categories'>
-        <h2>Популярные категории</h2>
-        <Tags tags={['IT', 'Психология', 'Зоология']} />
+        <SidebarTitle>Популярные категории</SidebarTitle>
+
+        <Tags
+          tags={[
+            { title: 'IT', id: 1 },
+            { title: 'Психология', id: 2 },
+            { title: 'Зоология', id: 3 },
+          ]}
+        />
       </section>
       <section className='sidebar__authors'>
-        <h2>Популярные авторы</h2>
+        <SidebarTitle>Популярные авторы</SidebarTitle>
+
         <section className='sidebar__authors-list'>
           {authors.map(({ subs, title }, index) => (
             <SidebarAuthor key={index} subs={subs} title={title} />

@@ -3,7 +3,7 @@
 	font-weight: 500
 	letter-spacing: 1px
 	line-height: 19.12px
-	transition: transform .4s
+	transition: transform .4s, background-color .4s, color .4s
 	&:hover
 		transform: scale(0.95)
 	&.btn__pagination
@@ -17,6 +17,17 @@
 	&.btn__black
 		color: $background
 		background: $color
+	&.btn__accent
+		background: $accent
+		border: $accent solid 1px
+		color: $background
+		&:hover
+			background: none
+			color: $accent
+		&:active
+			background: $darkAccent
+			color: $background
+
 	&.btn__big
 		height: 60px
 		width: 100%

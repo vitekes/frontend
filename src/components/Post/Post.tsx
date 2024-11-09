@@ -1,39 +1,41 @@
-import mars from 'assets/mars.png'
-import Image from 'next/image'
-import type { IUniqPost } from 'src/types/post.types'
-import { Actions } from 'ui/Actions/Actions'
-import { Author } from 'ui/Author/Author'
-import { Tags } from 'ui/Tag/Tags'
-import { Title } from 'ui/Title/Title'
+'use client'
+import { useQuery } from '@tanstack/react-query'
+import postService from 'src/services/post.service'
+import type { IOneRes } from 'src/types/global.types'
+import type { IPost } from 'src/types/post.types'
+import SkeletonLoader from '../ui/Skeleton/Skeleton'
 import './Post.sass'
-export function Post({
-  post: {
-    title,
-    tags,
-    content,
-    date,
-    count_comments: comments,
-    count_likes: likes,
-    count_views: views,
-    user: { avatar },
-  },
+export function PostPage({
+  initialData,
 }: {
-  post: IUniqPost
+  initialData: IOneRes<{ data: IPost }>
 }) {
-  return (
-    <div className='postu'>
-      <Title>{title}</Title>
-      <Author author='Test User' avatar={avatar} />
-      <Tags tags={tags} />
-      <Image
-        alt='Photo'
-        src={mars}
-        className='postu__img'
-        width={1920}
-        height={315}
-      />
-      <p>{content}</p>
-      <Actions actionsInfo={{ comments, date, likes, views }} />
-    </div>
-  )
+  const { data, isFetching, isPending, isRefetching } = useQuery({
+    queryKey: ['post', initialData.data.data.id],
+    queryFn: () => postService.getOne(initialData.data.data.id),
+    initialData,
+  })
+  console.log(data.data.data)
+  if (isFetching || isPending || isRefetching) return <SkeletonLoader isAlone />
+  return <></>
+  // return (
+  //   <Post
+  //     id={id}
+  //     actions={{
+  //       actionsInfo: {
+  //         comments: count_comments,
+  //         date: new Date(date),
+  //         likes: count_likes,
+  //         views: count_views,
+  //       },
+  //     }}
+  //     user={user}
+  //     categories={['categories']}
+  //     tags={[{ title: 'tags', id: 1 }]}
+  //     text={content}
+  //     preview={preview}
+  //     title={title}
+  //     key={id}
+  //   />
+  // )
 }

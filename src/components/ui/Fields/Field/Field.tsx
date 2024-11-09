@@ -11,7 +11,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
     <div className={`${extra} field`}>
       <label>
         {label}
-        <input ref={ref} className={'field__input'} {...rest} />
+        <input ref={ref} className='field__input' {...rest} />
       </label>
     </div>
   ),

@@ -16,16 +16,16 @@ export class Service<T> {
     this.BASE_URL = baseUrl
   }
 
-  public async getAll(queryData: TPagination = initialQueryParams.queryParams) {
-    const { data } = await axiosClassic<IArrayRes>(this.BASE_URL + '/', {
+  public async getAll(
+    queryData: TPagination = initialQueryParams.queryParams,
+  ): Promise<IArrayRes> {
+    const { data } = await axiosClassic.get<IArrayRes>(this.BASE_URL + '/', {
       params: queryData,
     })
     return data
   }
-  public async getOne(id: number) {
-    const { data, status } = await axiosClassic<IOneRes<T>>(
-      `${this.BASE_URL}/${id}`,
-    )
+  public async getOne(id: number): Promise<IOneRes<T>> {
+    const { data, status } = await axiosClassic.get<T>(`${this.BASE_URL}/${id}`)
     return { data, status }
   }
 }

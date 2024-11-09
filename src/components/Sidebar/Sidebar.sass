@@ -1,12 +1,50 @@
 @import "styles/_system"
 .sidebar
+	@include badge()
 	width: 370px 
 	float: right
 	background: $background
 	padding: 20px
-	
-	@include badge()
-	h2
+	.sidebar__uniq
+		.sidebar__uniq-post
+			color: $color
+			margin-bottom: 30px
+			img
+				height: 188px
+				object-fit: cover
+				border-radius: 9px
+			h3
+				margin-top: 10px
+				margin-bottom: 4px
+				font-size: 16px
+				font-weight: 700
+			p
+				font-size: 12px
+		hr
+			margin: 20px 0 30px
+			background: $grey
+			height: 1px
+		.sidebar__uniq-premium
+			background: $globalBackground
+			padding: 30px
+			display: grid
+			row-gap: 10px
+			justify-content: center
+			h4
+				text-align: center
+				font-size: 24px
+			p
+				text-align: center
+				font-size: 14px
+				font-weight: 700
+			ul
+				margin: 0 0 20px 20px
+				li
+					font-size: 14px
+					font-weight: 400
+					list-style-type: disc !important
+				
+	.sidebar__title
 		font-size: 24px
 		font-weight: 700
 		line-height: 32.78px

@@ -1,8 +1,10 @@
 import { Subscribe } from 'src/components/ui/Subscribe/Subscribe'
+import SidebarTitle from '../SidebarTitle'
 
-export const BlogSidebar = () => (
+const BlogSidebar = () => (
   <div className='sidebar__subscribes'>
-    <h2>Выберите подписку</h2>
+    <SidebarTitle>Выберите подписку</SidebarTitle>
+
     <Subscribe
       isSub={false}
       name='Эконом'
@@ -26,3 +28,4 @@ export const BlogSidebar = () => (
     />
   </div>
 )
+export default BlogSidebar

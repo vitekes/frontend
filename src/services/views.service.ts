@@ -1,6 +1,18 @@
+import { axiosClassic } from 'src/api/axios'
+import type { TNamespaces } from 'src/types/global.types'
+
 class ViewsService {
-  private readonly BASE_URL = '/albums'
-  public async addView() {}
+  public async addView(type: TNamespaces, id: number): Promise<boolean> {
+    const { data, status } = await axiosClassic.post<{ success: string }>(
+      `${type}/${id}/view/add/`,
+      {},
+    )
+    if (status === 200) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
-const viewsService = new ViewsService()
-export default viewsService
+
+export default new ViewsService()

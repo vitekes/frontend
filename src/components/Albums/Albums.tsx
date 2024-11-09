@@ -6,6 +6,7 @@ import albumService from 'src/services/album.service'
 import type { IAlbum } from 'src/types/album.types'
 import type { IResponse } from 'src/types/global.types'
 import { Albums } from 'ui/Albums/Albums'
+import { Heading } from '../ui/Heading/Heading'
 const Pagination = dynamic(() => import('../Pagintaion/Pagination'))
 export function AlbumsPage({
   initialData,
@@ -21,6 +22,8 @@ export function AlbumsPage({
   })
   return (
     <div>
+      <Heading style={{ marginBottom: 15 }}>Альбомы</Heading>
+
       <Albums
         albums={data.array}
         isLoading={isPending || isFetching || isRefetching}

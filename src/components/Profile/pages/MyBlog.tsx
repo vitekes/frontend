@@ -1,5 +1,5 @@
+import { Heading } from '../../ui/Heading/Heading'
 import { Blog } from '../components/Blog/Blog'
-import { Heading } from '../components/Heading/Heading'
 
 const MyBlog = () => {
   return (

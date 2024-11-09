@@ -6,35 +6,37 @@ import getNeedsSidebar, {
 } from 'src/utils/getProfilePath'
 import './Sidebar.sass'
 
+const BlogSidebar = dynamic(() => import('./pages/Blog.sidebar'))
+const HomeSidebar = dynamic(() => import('./pages/Home.sidebar'))
+const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
+const UniqSidebar = dynamic(() => import('./pages/Uniq.sidebar'))
+
 const Sidebars = ({
-  is: { isBlog, isMain, isProfile },
+  is: { isBlog, isMain, isProfile, isUniq },
 }: {
   is: IGetNeedsSidebar
 }) => {
   switch (true) {
     case isBlog:
-      const BlogSidebar = dynamic(() =>
-        import('./pages/Blog.sidebar').then(mod => mod.BlogSidebar),
-      )
+      // const { BlogSidebar } = await import('./pages/Blog.sidebar')
       return <BlogSidebar />
     case isMain:
-      const HomeSidebar = dynamic(() =>
-        import('./pages/Home.sidebar').then(mod => mod.HomeSidebar),
-      )
+      // const { HomeSidebar } = await import('./pages/Home.sidebar')
+
       return <HomeSidebar />
     case isProfile:
-      const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
+      // const ProfileSidebar = (await import('./pages/Profile.sidebar')).default
       return <ProfileSidebar />
-
-    default:
-      return <></>
+    case isUniq:
+      // const UniqSidebar = (await import('./pages/Uniq.sidebar')).default
+      return <UniqSidebar />
   }
 }
 
 export const Sidebar = () => {
   const path = usePathname()
-  const { needSideBar, ...is } = getNeedsSidebar(path)
-  if (!needSideBar) return <></>
+  const { isNeedSideBar, ...is } = getNeedsSidebar(path)
+  if (!isNeedSideBar) return <></>
   return (
     <aside className='sidebar'>
       <Sidebars is={is} />

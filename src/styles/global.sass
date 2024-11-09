@@ -31,12 +31,12 @@ body
 	flex-grow: 1
 
 
-main
+.main
 	&.main-with-sidebar
 		width: calc( 100% - 400px )
 		float: left
 	&.main-without-sidebar
-		width: 100%
+		width: 100% !important
 
 .wrapper
 	display: flex
@@ -56,7 +56,7 @@ main
 ::-webkit-scrollbar-thumb
 	background: $accent
 	width: 9px
-@media screen and (width <= 1030px)
+@media screen and (width <= $md)
 	main
-		width: 100%
+		width: 100% !important
 		

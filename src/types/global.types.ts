@@ -20,7 +20,7 @@ export interface IGlobalLines {
   count_comments: number
   count_views: number
   count_likes: number
-  namespace: string
+  namespace: TNamespaces
   preview: string
 }
 export type TAnswer = {
@@ -48,7 +48,13 @@ export enum EnumItemType {
   ALBUM = 'album',
   QUEST = 'quest',
 }
-
+export type TNamespaces =
+  | 'posts'
+  | 'albums'
+  | 'podcasts'
+  | 'quests'
+  | 'surveys'
+  | 'tests'
 export type TPagination = {
   page?: string | number
   perPage: string | number

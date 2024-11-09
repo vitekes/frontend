@@ -10,7 +10,7 @@ interface Props {
 
 export const Main = ({ children }: Props) => {
   const path = usePathname()
-  const { needSideBar } = getNeedsSidebar(path)
+  const { isNeedSideBar: needSideBar } = getNeedsSidebar(path)
   return (
     <main
       className={cn('main', {

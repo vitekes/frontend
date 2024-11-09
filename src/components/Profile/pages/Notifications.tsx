@@ -1,6 +1,5 @@
-import { Heading } from '../components/Heading/Heading'
+import { Heading } from '../../ui/Heading/Heading'
 
-const Notifications = () => {
+export const Notifications = () => {
   return <Heading>Уведомления</Heading>
 }
-export default Notifications
