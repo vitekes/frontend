@@ -1,4 +1,5 @@
 'use client'
+import cn from 'clsx'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import getNeedsSidebar, {
@@ -35,10 +36,10 @@ const Sidebars = ({
 
 export const Sidebar = () => {
   const path = usePathname()
-  const { isNeedSideBar, ...is } = getNeedsSidebar(path)
-  if (!isNeedSideBar) return <></>
+  const is = getNeedsSidebar(path)
+  if (!is.isNeedSideBar) return <></>
   return (
-    <aside className='sidebar'>
+    <aside className={cn('sidebar', { sidebar__profile: is.isProfile })}>
       <Sidebars is={is} />
     </aside>
   )

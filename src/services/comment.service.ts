@@ -6,7 +6,9 @@ import type { IOneRes, TNamespaces } from 'src/types/global.types'
 interface ICommentService {
   readonly BASE_URL: string
   getComments: (
+    // eslint-disable-next-line
     namespace: TNamespaces,
+    // eslint-disable-next-line
     id: number,
   ) => Promise<IOneRes<ICommentArray>>
 }

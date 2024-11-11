@@ -1,6 +1,12 @@
-$background: #ffffff
-$globalBackground: #F4F4F4
-$color: #273F69
+:root 
+	--background: #ffffff
+	--global-background: #F4F4F4
+	--color: #273F69
+	--md: 1030px
+	--sidebar-width: 370px
+$background: var(--background)
+$globalBackground: var(--global-background)
+$color: var(--color)
 
 $yellow: #EF9C1B
 
@@ -21,6 +27,7 @@ $fontRegular: var(--font-regular)
 $fontMedium: var(--font-medium)
 
 $md: 1030px
+$sidebarWidth: var(--sidebar-width)
 
 @mixin badge()
 	background: $background

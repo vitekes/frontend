@@ -13,7 +13,7 @@ const Privacy = dynamic(() =>
   import('./pages/Privacy').then(mod => mod.Privacy),
 )
 const Subscribes = dynamic(() =>
-  import('./pages/Subscribes').then(mod => mod.Subscribes),
+  import('./pages/Subscribes').then(mod => mod.SubscribesPage),
 )
 const Wallet = dynamic(() =>
   import('./pages/Wallet').then(mod => mod.WalletProfilePage),
@@ -65,6 +65,8 @@ const Profile = () => {
     case 5:
       // const { Notifications } = await import('./pages/Notifications')
       return <Notifications />
+    default:
+      return <h1>Ошибка!</h1>
   }
 }
 export default Profile

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { allItems } from 'src/constants/constants'
 import albumService from 'src/services/album.service'
-import commentService from 'src/services/comment.service'
 import viewsService from 'src/services/views.service'
 import { Album } from 'ui/Albums/Album'
 
@@ -29,6 +28,7 @@ export async function generateMetadata({
     language,
     preview,
     user: { username: name, last_name, first_name },
+    // @ts-ignore
   } = (await getOnePost(+id)).data
   return {
     title,
@@ -51,10 +51,7 @@ export async function generateStaticParams() {
     id: id.toString(),
   }))
 }
-async function getComments(id: number) {
-  const comments = await commentService.getComments('albums', id)
-  return comments
-}
+
 export default async function Page({
   params: { id },
 }: {
@@ -70,8 +67,8 @@ export default async function Page({
     title,
     preview,
     id: paramId,
+    // @ts-ignore
   } = (await getOnePost(id)).data
-  const comments = await getComments(id)
   await viewsService.addView('albums', id)
   return (
     <>
@@ -93,7 +90,7 @@ export default async function Page({
           },
         }}
       />
-      <Comments initialData={comments} namespace='albums' id={id} />
+      <Comments namespace='albums' id={id} />
     </>
   )
 }

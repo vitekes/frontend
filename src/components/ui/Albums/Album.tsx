@@ -52,6 +52,7 @@ export const Album = ({
             width={730}
             height={800}
             alt='Album photo'
+            quality={needRoute ? 75 : 95}
             priority={id < 3 ? true : false}
           />
         </div>

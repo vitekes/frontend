@@ -24,7 +24,7 @@ body
 	display: grid
 	row-gap: 30px
 .container
-	width: min(1170px,98%)
+	width: min(1170px,95%)
 	margin: 0 auto
 	height: 100%
 .content
@@ -32,7 +32,10 @@ body
 
 
 .main
-	&.main-with-sidebar
+	&.main-profile
+		width: calc( 100% - 300px )
+		float: left
+	&.main-with-sidebar:not(.main-profile)
 		width: calc( 100% - 400px )
 		float: left
 	&.main-without-sidebar

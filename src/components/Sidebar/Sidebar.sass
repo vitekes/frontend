@@ -1,10 +1,14 @@
-@import "styles/_system"
+@import "vars"
 .sidebar
 	@include badge()
-	width: 370px 
+	
 	float: right
 	background: $background
 	padding: 20px
+	width: 370px 
+	&.sidebar__profile
+		width: 270px !important
+
 	.sidebar__uniq
 		.sidebar__uniq-post
 			color: $color
@@ -43,7 +47,7 @@
 					font-size: 14px
 					font-weight: 400
 					list-style-type: disc !important
-				
+	
 	.sidebar__title
 		font-size: 24px
 		font-weight: 700
