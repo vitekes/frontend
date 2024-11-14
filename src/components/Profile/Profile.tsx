@@ -10,7 +10,7 @@ const Notifications = dynamic(() =>
   import('./pages/Notifications').then(mod => mod.Notifications),
 )
 const Privacy = dynamic(() =>
-  import('./pages/Privacy').then(mod => mod.Privacy),
+  import('./pages/Privacy').then(mod => mod.PrivacyPage),
 )
 const Subscribes = dynamic(() =>
   import('./pages/Subscribes').then(mod => mod.SubscribesPage),

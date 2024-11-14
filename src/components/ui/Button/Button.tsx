@@ -16,6 +16,7 @@ export function Button({
   size,
   isPagination = false,
   disabled,
+  className,
   ...rest
 }: Props) {
   const classes = {
@@ -29,7 +30,7 @@ export function Button({
     btn__disabled: disabled,
   }
   return (
-    <button {...rest} className={cn('btn', classes)}>
+    <button {...rest} className={cn(`btn ${className}`, classes)}>
       {children}
     </button>
   )

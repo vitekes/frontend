@@ -17,7 +17,7 @@ export function Blog({ isActive, str }: Props) {
       className={cn('profile__blog', { 'profile__blog-active': active })}
     >
       <input
-        onClick={() => setActive(s => (s = !s))}
+        // onClick={() => setActive(s => (s = !s))}
         type='checkbox'
         checked={active}
       />
