@@ -1,7 +1,7 @@
 import { initialQueryParams } from 'src/constants/constants'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { IStore, TTabs } from './store.types'
+import type { IStore, TSale, TTabs } from './store.types'
 
 // export const useMainTabs = create<TTabs>()(
 //   persist(
@@ -49,7 +49,17 @@ export const useBlogTabs = create<TTabs>()(
     },
   ),
 )
-
+export const useSaleClose = create<TSale>()(
+  persist(
+    set => ({
+      isOpen: true,
+      close: () => set(() => ({ isOpen: false })),
+    }),
+    {
+      name: 'is-sale-close',
+    },
+  ),
+)
 export const useFiltersStore = create<IStore>(set => ({
   ...initialQueryParams,
   isFilterUpdated: false,

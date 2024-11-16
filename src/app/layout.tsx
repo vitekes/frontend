@@ -7,6 +7,7 @@ import localFont from 'next/font/local'
 import { Header } from 'src/components/Header/Header'
 import { MoreContent } from 'src/components/MoreContent/MoreContent'
 import { Sidebar } from 'src/components/Sidebar/Sidebar'
+import { BACKGROUND } from 'src/constants/colors.constants'
 import { CLIENT_URL } from 'src/constants/constants'
 import { SITE_NAME } from 'src/constants/seo.constants'
 import Providers from 'src/providers/Providers'
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   authors: {
     name: SITE_NAME,
+    url: CLIENT_URL,
   },
   applicationName: SITE_NAME,
   // icons: {
@@ -82,7 +84,8 @@ export const metadata: Metadata = {
   // },
 }
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF',
+  themeColor: BACKGROUND,
+  colorScheme: 'light',
 }
 export default async function RootLayout({
   children,

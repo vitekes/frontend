@@ -4,7 +4,7 @@ export type TTabs = {
   //eslint-disable-next-line
   setTab: (num: number) => void
 }
-
+export type TSale = { isOpen: boolean; close: () => void }
 export interface IStore {
   queryParams: TPagination
   isFilterUpdated: boolean

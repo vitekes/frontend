@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
 import blogService from 'src/services/blog.service'
-import { Tags } from 'ui/Tag/Tags'
 import SidebarTitle from '../SidebarTitle'
 import { SidebarAuthor } from './Author.sidebar'
 import { SidebarPost } from './Post.sidebar'
@@ -56,7 +55,7 @@ export default function HomeSidebar() {
           ),
         )}
       </section>
-      <section className='sidebar__categories'>
+      {/* <section className='sidebar__categories'>
         <SidebarTitle>Популярные категории</SidebarTitle>
 
         <Tags
@@ -66,7 +65,7 @@ export default function HomeSidebar() {
             { title: 'Зоология', id: 3 },
           ]}
         />
-      </section>
+      </section> */}
       <section className='sidebar__authors'>
         <SidebarTitle>Популярные авторы</SidebarTitle>
 
