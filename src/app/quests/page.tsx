@@ -8,5 +8,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function page() {
   const quests = await questService.getAll()
+
   return <Quests quests={quests} />
 }

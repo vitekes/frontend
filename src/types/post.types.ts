@@ -1,4 +1,7 @@
-import type { IGlobalLines, TTag } from './global.types'
+import type { IGlobalLines, IOneRes, TTag } from './global.types'
+
+export type TPostArray = { array: IPost[]; length: number }
+export type TOnePost = IOneRes<{ data: IUniqPost }>
 
 export interface IPost extends Omit<IGlobalLines, 'description'> {
   content: string
@@ -13,4 +16,8 @@ export interface IUniqPost extends IPost {
   category: number
   answers: string[]
   test: null
+}
+export interface IPopularPosts {
+  popular_week: IPost[]
+  popular_day: IPost[]
 }

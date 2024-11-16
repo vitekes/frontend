@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '../ui/Button/Button'
-import { Field } from '../ui/Fields/Field/Field'
+import { Button } from 'ui/Button/Button'
+import { Field } from 'ui/Fields/Field/Field'
 import './AuthForm.sass'
 import { useAuthForm } from './useAuthForm'
 interface AuthFormProps {

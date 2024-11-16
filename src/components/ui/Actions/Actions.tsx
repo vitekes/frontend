@@ -17,19 +17,19 @@ export function Actions({
     <>
       <hr className='actions__hr' />
       <section className='actions'>
-        <time dateTime={date.toLocaleString()}>
+        <time itemProp='dataPublisher' dateTime={date.toLocaleString()}>
           <Image alt='Date' width={16} height={16} src={dateSVG} />
           {convertDate(new Date(date))}
         </time>
-        <span>
+        <span className='actions__views'>
           <Image alt='Watches' width={16} height={16} src={eyeSVG} />
           {convertToPrettyString(views)}
         </span>
-        <span>
+        <span className='actions__likes'>
           <Image alt='Likes' width={16} height={16} src={heartSVG} />
           {convertToPrettyString(likes)}
         </span>
-        <span>
+        <span className='actions__comments'>
           <Image alt='Comments' width={16} height={16} src={commentsSVG} />
           {convertToPrettyString(comments)}
         </span>

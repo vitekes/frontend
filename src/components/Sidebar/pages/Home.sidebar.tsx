@@ -1,24 +1,10 @@
+import { useQuery } from '@tanstack/react-query'
+import blogService from 'src/services/blog.service'
 import { Tags } from 'ui/Tag/Tags'
 import SidebarTitle from '../SidebarTitle'
 import { SidebarAuthor } from './Author.sidebar'
 import { SidebarPost } from './Post.sidebar'
-const posts = [
-  {
-    author: 'Иван Иванов',
-    title: 'Квесто - Мания Лета',
-    text: '"КвестоМания Лета" — это серия увлекательных квестов на свежем воздухе, которые идеально подходят для активного отдыха в теплое время года',
-  },
-  {
-    author: 'Иван Иванов',
-    title: 'Квесто - Мания Лета',
-    text: '"КвестоМания Лета" — это серия увлекательных квестов на свежем воздухе, которые идеально подходят для активного отдыха в теплое время года',
-  },
-  {
-    author: 'Иван Иванов',
-    title: 'Квесто - Мания Лета',
-    text: '"КвестоМания Лета" — это серия увлекательных квестов на свежем воздухе, которые идеально подходят для активного отдыха в теплое время года',
-  },
-]
+
 const authors = [
   {
     subs: 144000,
@@ -50,19 +36,25 @@ const authors = [
   },
 ]
 export default function HomeSidebar() {
+  const { data } = useQuery({
+    queryKey: ['posts popular'],
+    queryFn: () => blogService.getPopular(),
+  })
   return (
     <>
       <section className='sidebar__posts'>
         <SidebarTitle isFirst>Популярное сейчас</SidebarTitle>
-        {posts.map(({ author, text, title }, index) => (
-          <SidebarPost
-            index={index}
-            key={index}
-            author={author}
-            title={title}
-            text={text}
-          />
-        ))}
+        {data?.popular_day.map(
+          ({ user: { first_name, last_name }, title, content }, index) => (
+            <SidebarPost
+              index={index}
+              key={index}
+              author={`${first_name} ${last_name}`}
+              title={title}
+              text={content}
+            />
+          ),
+        )}
       </section>
       <section className='sidebar__categories'>
         <SidebarTitle>Популярные категории</SidebarTitle>

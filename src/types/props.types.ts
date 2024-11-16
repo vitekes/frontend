@@ -1,4 +1,3 @@
-import type { TTag } from './global.types'
 import type { IUserElement } from './user.types'
 
 export type TActionsProps = {
@@ -11,11 +10,8 @@ export type TActionsProps = {
 }
 
 export interface IPostProps {
-  categories: string[]
-  tags: TTag[]
   title: string
   id: number
-  text: string
   preview: string | null
   user: IUserElement
 }

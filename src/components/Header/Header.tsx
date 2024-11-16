@@ -9,9 +9,13 @@ const HeaderActions = dynamic(() =>
 )
 export function Header() {
   return (
-    <header className='header'>
+    <header
+      className='header'
+      itemScope
+      itemType='http://schema.org/Organization'
+    >
       <div className='container'>
-        <Link href={'/'}>
+        <Link aria-label='Link to home page' href={'/'} itemProp='logo'>
           <Image alt='Logo' src={logo} width={160} height={50} />
         </Link>
         <HeaderNav />

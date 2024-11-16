@@ -1,10 +1,6 @@
 up:
-	docker-compose up -d
-# build:
-# 	docker build -t vifyx .
-# run:
-# 	docker run -p 80:80 vifyx
+	docker-compose up --build
 nginx: 
 	docker build -t nginx:latest -f nginx/Dockerfile nginx
-dev:
-	bun run dev
+b:
+	bun run build

@@ -2,13 +2,6 @@ import { axiosClassic } from 'src/api/axios'
 import { initialQueryParams } from 'src/constants/constants'
 import type { IArrayRes, IOneRes, TPagination } from 'src/types/global.types'
 
-// export interface Service<T> {
-//   readonly BASE_URL: string
-
-//   getAll(queryData?: TPagination): Promise<IArrayRes>
-
-//   getOne(id: number): Promise<IOneRes<T>>
-// }
 export class Service<T> {
   readonly BASE_URL: string
 
@@ -29,8 +22,3 @@ export class Service<T> {
     return { data, status }
   }
 }
-// export abstract class Service<T> {
-//   abstract getAll(queryData?: TPagination): Promise<IArrayRes>
-
-//   abstract getOne(id: number): Promise<IOneRes<T>>
-// }

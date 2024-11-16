@@ -5,11 +5,10 @@ import Quest from 'src/components/Quests/Quest'
 import SkeletonLoader from 'src/components/ui/Skeleton/Skeleton'
 import { useFilters } from 'src/hooks/useFilters'
 import questService from 'src/services/quest.service'
-import type { IResponse } from 'src/types/global.types'
-import type { IQuest } from 'src/types/quest.types'
+import type { IArrayRes } from 'src/types/global.types'
 const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 
-const Quests = ({ quests }: { quests: IResponse<IQuest> }) => {
+const Quests = ({ quests }: { quests: IArrayRes }) => {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
   const {
     data: { array, length },

@@ -57,39 +57,12 @@ export default async function Page({
 }: {
   params: { id: number }
 }) {
-  const {
-    count_comments,
-    date,
-    count_likes,
-    count_views,
-    description,
-    user,
-    title,
-    preview,
-    id: paramId,
-    // @ts-ignore
-  } = (await getOnePost(id)).data
+  //@ts-ignore
+  const album = (await getOnePost(id)).data
   await viewsService.addView('albums', id)
   return (
     <>
-      <Album
-        user={user}
-        title={title}
-        images={preview}
-        preview={preview}
-        categories={['']}
-        tags={[{ title: '', id: 1 }]}
-        text={description}
-        id={paramId}
-        actions={{
-          actionsInfo: {
-            comments: count_comments,
-            date,
-            likes: count_likes,
-            views: count_views,
-          },
-        }}
-      />
+      <Album album={album} />
       <Comments namespace='albums' id={id} />
     </>
   )

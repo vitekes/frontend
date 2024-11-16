@@ -52,7 +52,6 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   authors: {
     name: SITE_NAME,
-    url: 'http://mk.ru',
   },
   applicationName: SITE_NAME,
   // icons: {

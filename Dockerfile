@@ -1,12 +1,24 @@
-FROM node:22.7.0 as build
+# Используем официальный образ Bun
+FROM oven/bun:alpine
+
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-COPY package*.json .
-COPY yarn.lock .
+# Копируем package.json и package-lock.json
+COPY package*.json ./
+COPY bun.lockb ./
 
-RUN yarn
+# Устанавливаем зависимости
+RUN bun install
+
+# Копируем остальные файлы приложения
 COPY . .
-RUN yarn build
 
+# Строим приложение
+RUN bun run build
 
-CMD [ "yarn", "start" ]
+# Открываем порт 3000
+EXPOSE 3000
+
+# Запускаем приложение
+CMD ["bun", "run", "start"]

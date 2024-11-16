@@ -6,10 +6,10 @@ import './Main.sass'
 import { useQuery } from '@tanstack/react-query'
 import { useFilters } from 'src/hooks/useFilters'
 import postService from 'src/services/post.service'
-import type { IArrayRes } from 'src/types/global.types'
+import type { TPostArray } from 'src/types/post.types'
 import Pagination from '../Pagintaion/Pagination'
 
-export function Main({ initialData }: { initialData: IArrayRes }) {
+export function Main({ initialData }: { initialData: TPostArray }) {
   // const { tabActive, setTab } = useMainTabs(state => state)
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
   const {

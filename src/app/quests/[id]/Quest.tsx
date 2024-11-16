@@ -10,6 +10,7 @@ const QuestPage = ({ quest }: { quest: IQuestUniq }) => {
     queryFn: async () => (await questService.getOne(quest.data.id)).data,
     initialData: quest,
   })
-  return <Quest quest={data.data} isUniq />
+  //@ts-ignore
+  return <Quest quest={{ data }} isUniq />
 }
 export default QuestPage

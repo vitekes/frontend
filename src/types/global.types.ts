@@ -10,6 +10,9 @@ export interface IOneRes<T> {
   status: number
   data: T
 }
+export type TParams = {
+  params: { id: number }
+}
 export interface IGlobalLines {
   id: number
   title: string

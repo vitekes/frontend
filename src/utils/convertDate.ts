@@ -24,6 +24,7 @@ export const convertDateRadius = (
 ): string => {
   let formattedDate: string
   const daysDifference = differenceInDays(end_date, start_date)
+
   const daysWord = declOfNum(daysDifference, ['день', 'дня', 'дней'])
 
   if (isSameMonth(start_date, end_date)) {

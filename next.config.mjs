@@ -1,4 +1,3 @@
-import analyzer from '@next/bundle-analyzer'
 import appRootPath from 'app-root-path'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -37,9 +36,9 @@ const nextConfig = {
     ]
   },
 }
-const withBundleAnalyzer = analyzer({
-  // enabled: true,
-  enabled: process.env.ANALYZE === 'true',
-})
+// const withBundleAnalyzer = analyzer({
+//   // enabled: true,
+//   enabled: process.env.ANALYZE === 'true',
+// })
 
-export default withBundleAnalyzer(nextConfig)
+export default nextConfig

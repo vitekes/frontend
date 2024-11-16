@@ -1,4 +1,5 @@
 import { axiosClassic } from 'src/api/axios'
+import type { IPopularPosts } from 'src/types/post.types'
 
 class BlogService {
   private readonly BASE_URL = '/blogs'
@@ -19,6 +20,12 @@ class BlogService {
     const { data } = await axiosClassic.get(`${this.BASE_URL}/${id}/${type}`)
     return data
   }
+  public async getPopular(): Promise<IPopularPosts> {
+    const { data } = await axiosClassic.get<IPopularPosts>(
+      `${this.BASE_URL}/preview_popular/`,
+    )
+    return data
+  }
 }
-const blogService = new BlogService()
-export default blogService
+
+export default new BlogService()

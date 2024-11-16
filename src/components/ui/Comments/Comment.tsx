@@ -9,9 +9,14 @@ export function Comment({
   comment: IComment
 }) {
   return (
-    <article className='comment'>
+    <article
+      className='comment'
+      itemProp='comment'
+      itemScope
+      itemType='http://schema.org/Comment'
+    >
       <Author date={date} author={user} />
-      <p>{text}</p>
+      <p itemProp='description'>{text}</p>
       <section className='comment__actions'>
         <button>
           <Image alt='Like' width={16} height={16} src={heart} />

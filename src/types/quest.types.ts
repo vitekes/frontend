@@ -1,7 +1,7 @@
 import type { IGlobalLines, TTag } from './global.types'
 
 export interface IQuest extends IGlobalLines {
-  history_date: Date | null
+  // history_date: Date | null
 }
 
 export interface IQuestUniq {

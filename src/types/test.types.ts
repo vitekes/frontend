@@ -1,6 +1,6 @@
 import type { IGlobalLines, TTag } from './global.types'
 
-export interface ITest extends IGlobalLines {
+export interface ITest {
   data: {
     questions: any[]
     scores: number
@@ -8,5 +8,5 @@ export interface ITest extends IGlobalLines {
     content: string
     tags: TTag[]
     is_not_subscribed: boolean
-  }
+  } & IGlobalLines
 }

@@ -28,7 +28,7 @@ const Quest = ({
   const prettyDate = convertDate(new Date(date))
   return (
     <NeedRoute need={!isUniq} link={`/quests/${id}`}>
-      <article className='quest'>
+      <article className='quest' itemScope itemType='http://schema.org/Article'>
         <div className='quest__left'>
           <Image src={preview} width={250} height={500} alt='Image' />
         </div>

@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { BACKGROUND, GLOBAL_BACKGROUND } from 'src/constants/colors.constants'
 import { DESCRIPTION, SITE_NAME } from 'src/constants/seo.constants'
 

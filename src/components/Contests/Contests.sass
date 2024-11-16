@@ -7,25 +7,28 @@
 		width: 100%
 		padding: 20px
 		@include badge()
-		display: grid
-		row-gap: 20px
+
 		.contest__header
 			display: flex
 			column-gap: 20px
 			align-items: center
-			justify-content: space-between
+			margin-bottom: 20px
 			time
 				font-size: 12px
-		.contest__img
-			max-height: 365px
-			object-fit: cover
+		.contest__body
+			display: flex
+			flex-direction: column
+			row-gap: 20px
+			.contest__img
+				max-height: 365px
+				object-fit: cover
 
-			border-radius: 8px
-		.contest__description
-			font-size: 15px
-			font-weight: 400
-			line-height: 20.49px
-			color: $color
-		button
-			width: 30%
-			
+				border-radius: 8px
+			.contest__description
+				font-size: 15px
+				font-weight: 400
+				line-height: 20.49px
+				color: $color
+			button
+				width: 30%
+				
