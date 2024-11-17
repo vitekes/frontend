@@ -1,7 +1,7 @@
 import type { IGlobalLines, IOneRes, TTag } from './global.types'
 
 export type TPostArray = { array: IPost[]; length: number }
-export type TOnePost = IOneRes<{ data: IUniqPost }>
+export type TOnePost = IOneRes<IUniqPost>
 
 export interface IPost extends Omit<IGlobalLines, 'description'> {
   content: string

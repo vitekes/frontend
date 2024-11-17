@@ -8,6 +8,7 @@ const disallow: string[] = [
   '/register',
   '/profile',
   '/admin',
+  '/surveys/add',
 ]
 export default function robots(): MetadataRoute.Robots {
   return {

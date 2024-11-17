@@ -2,7 +2,8 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PLACEHOLDER_IMG } from 'src/constants/constants'
-import type { IAlbum } from 'src/types/album.types'
+import type { IQnicAlbum } from 'src/types/album.types'
+import type { IGlobalLines } from 'src/types/global.types'
 import { Author } from '../Author/Author'
 import { Title } from '../Title/Title'
 import './Albums.sass'
@@ -11,7 +12,7 @@ const Actions = dynamic(() =>
 )
 type Props = {
   needRoute?: boolean
-  album: IAlbum
+  album: IQnicAlbum | IGlobalLines
 }
 export const Album = ({
   album: {

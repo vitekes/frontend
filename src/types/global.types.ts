@@ -8,7 +8,7 @@ export interface IResponse<T> {
 export interface IArrayRes extends IResponse<IGlobalLines> {}
 export interface IOneRes<T> {
   status: number
-  data: T
+  data: { data: T }
 }
 export type TParams = {
   params: { id: number }
