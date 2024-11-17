@@ -9,6 +9,8 @@ const disallow: string[] = [
   '/profile',
   '/admin',
   '/surveys/add',
+  '/posts/add',
+  '/albums/add',
 ]
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -21,11 +23,15 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Yandex',
         allow: '/',
-
         disallow,
       },
       {
         userAgent: 'Googlebot',
+        allow: '/',
+        disallow,
+      },
+      {
+        userAgent: 'Applebot',
         allow: '/',
         disallow,
       },

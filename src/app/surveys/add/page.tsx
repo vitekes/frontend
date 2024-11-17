@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Button } from 'src/components/ui/Button/Button'
+import { Button } from 'ui/Button/Button'
 import { Field } from 'ui/Fields/Field/Field'
 import { Heading } from 'ui/Heading/Heading'
 import './Add.sass'

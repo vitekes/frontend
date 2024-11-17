@@ -1,0 +1,22 @@
+.posts__new
+	form
+		margin-top: 30px
+		display: grid
+		row-gap: 20px
+		textarea
+			resize: vertical
+			min-height: 300px
+		.posts__new-buttons
+			display: flex
+			justify-content: space-between
+			gap: 20px
+			width: 100%
+			button
+				min-width: 170px
+				height: 40px
+				border-radius: 5px
+				padding: 0 14px
+@media screen and (width <= 426px)
+	.posts__new-buttons
+		display: grid !important
+		justify-content: center !important

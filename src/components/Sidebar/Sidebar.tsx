@@ -6,31 +6,30 @@ import getNeedsSidebar, {
   type IGetNeedsSidebar,
 } from 'src/utils/getProfilePath'
 import './Sidebar.sass'
-
+const NewSidebar = dynamic(() => import('./pages/New.sidebar'))
 const BlogSidebar = dynamic(() => import('./pages/Blog.sidebar'))
 const HomeSidebar = dynamic(() => import('./pages/Home.sidebar'))
 const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
 const UniqSidebar = dynamic(() => import('./pages/Uniq.sidebar'))
 
 const Sidebars = ({
-  is: { isBlog, isMain, isProfile, isUniq },
+  is: { isBlog, isMain, isProfile, isUniq, isNew },
 }: {
   is: IGetNeedsSidebar
 }) => {
   switch (true) {
     case isBlog:
-      // const { BlogSidebar } = await import('./pages/Blog.sidebar')
       return <BlogSidebar />
     case isMain:
-      // const { HomeSidebar } = await import('./pages/Home.sidebar')
-
       return <HomeSidebar />
     case isProfile:
-      // const ProfileSidebar = (await import('./pages/Profile.sidebar')).default
       return <ProfileSidebar />
     case isUniq:
-      // const UniqSidebar = (await import('./pages/Uniq.sidebar')).default
       return <UniqSidebar />
+    case isNew:
+      return <NewSidebar />
+    default:
+      return <h1>Ошибка! Не прокинут Sidebar</h1>
   }
 }
 

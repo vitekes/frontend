@@ -4,12 +4,15 @@ export interface IGetNeedsSidebar {
   isBlog?: boolean
   isNeedSideBar?: boolean
   isUniq?: boolean
+  isNew?: boolean
 }
 
 export default function getNeedsSidebar(path: string): IGetNeedsSidebar {
   switch (true) {
     case path === '/' || path === '/albums':
       return { isMain: true, isNeedSideBar: true }
+    case path === '/posts/add':
+      return { isNew: true, isNeedSideBar: true }
     case path.includes('/blogs'):
       return { isBlog: true, isNeedSideBar: true }
     case path.includes('/profile'):
