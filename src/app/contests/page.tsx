@@ -1,6 +1,6 @@
 'use server'
 import type { Metadata } from 'next'
-import { Contests } from 'src/components/Contests/Contests'
+import { Contests } from 'src/app/contests/Contests'
 import contestService from 'src/services/contest.service'
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -38,7 +38,6 @@ const nextConfig = {
   },
 }
 const withBundleAnalyzer = analyzer({
-  // enabled: true,
   enabled: process.env.ANALYZE === 'true',
 })
 

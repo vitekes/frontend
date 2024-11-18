@@ -11,6 +11,9 @@ const disallow: string[] = [
   '/surveys/add',
   '/posts/add',
   '/albums/add',
+  '/tests/add',
+  '/tests/results/*',
+  '/contests/add',
 ]
 export default function robots(): MetadataRoute.Robots {
   return {

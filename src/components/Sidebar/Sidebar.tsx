@@ -6,11 +6,13 @@ import getNeedsSidebar, {
   type IGetNeedsSidebar,
 } from 'src/utils/getProfilePath'
 import './Sidebar.sass'
-const NewSidebar = dynamic(() => import('./pages/New.sidebar'))
-const BlogSidebar = dynamic(() => import('./pages/Blog.sidebar'))
-const HomeSidebar = dynamic(() => import('./pages/Home.sidebar'))
-const ProfileSidebar = dynamic(() => import('./pages/Profile.sidebar'))
-const UniqSidebar = dynamic(() => import('./pages/Uniq.sidebar'))
+const NewSidebar = dynamic(() => import('./pages/NewSidebar/New.sidebar'))
+const UniqSidebar = dynamic(() => import('./pages/UniqSidebar/Uniq.sidebar'))
+const ProfileSidebar = dynamic(
+  () => import('./pages/ProfileSidebar/Profile.sidebar'),
+)
+const HomeSidebar = dynamic(() => import('./pages/HomeSidebar/Home.sidebar'))
+const BlogSidebar = dynamic(() => import('./pages/BlogSidebar/Blog.sidebar'))
 
 const Sidebars = ({
   is: { isBlog, isMain, isProfile, isUniq, isNew },

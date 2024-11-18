@@ -11,7 +11,7 @@ export const API_URL = process.env.NEXT_PUBLIC_SERVER_URL,
       perPage: 8,
     },
   },
-  allItems = {
+  ALL_ITEMS = {
     page: 1,
     perPage: 10000000000,
   },

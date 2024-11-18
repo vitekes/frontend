@@ -6,10 +6,10 @@ import contestService from 'src/services/contest.service'
 import type { IArrayRes } from 'src/types/global.types'
 import { Heading } from 'ui/Heading/Heading'
 import SkeletonLoader from 'ui/Skeleton/Skeleton'
-import { Contest } from './Contest'
+import { Contest } from './[id]/Contest'
 import './Contests.sass'
 
-const Pagination = dynamic(() => import('../Pagintaion/Pagination'))
+const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 
 export function Contests({ initialData }: { initialData: IArrayRes }) {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()

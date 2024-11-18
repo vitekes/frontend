@@ -18,7 +18,7 @@ export class Service<T> {
     return data
   }
   public async getOne(id: number): Promise<IOneRes<T>> {
-    const { data, status } = await axiosClassic.get<T>(`${this.BASE_URL}/${id}`)
-    return { data, status }
+    const data = await axiosClassic.get<{ data: T }>(`${this.BASE_URL}/${id}`)
+    return data
   }
 }

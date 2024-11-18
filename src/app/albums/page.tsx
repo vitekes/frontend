@@ -1,9 +1,9 @@
 'use server'
 
-import { AlbumsPage } from 'src/components/Albums/Albums'
 import albumService from 'src/services/album.service'
 
 import type { Metadata } from 'next'
+import { AlbumsPage } from './Albums'
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: 'Альбомы' }

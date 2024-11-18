@@ -1,8 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
-import blogService from 'src/services/blog.service'
-import SidebarTitle from '../SidebarTitle'
-import { SidebarAuthor } from './Author.sidebar'
-import { SidebarPost } from './Post.sidebar'
+import SidebarTitle from '../../SidebarTitle'
+import { SidebarAuthor } from '../AuthorSidebar/Author.sidebar'
+import PostsSidebar from './PostsSidebar'
 
 const authors = [
   {
@@ -35,26 +33,9 @@ const authors = [
   },
 ]
 export default function HomeSidebar() {
-  const { data } = useQuery({
-    queryKey: ['posts popular'],
-    queryFn: () => blogService.getPopular(),
-  })
   return (
     <>
-      <section className='sidebar__posts'>
-        <SidebarTitle isFirst>Популярное сейчас</SidebarTitle>
-        {data?.popular_day.map(
-          ({ user: { first_name, last_name }, title, content }, index) => (
-            <SidebarPost
-              index={index}
-              key={index}
-              author={`${first_name} ${last_name}`}
-              title={title}
-              text={content}
-            />
-          ),
-        )}
-      </section>
+      <PostsSidebar />
       {/* <section className='sidebar__categories'>
         <SidebarTitle>Популярные категории</SidebarTitle>
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { allItems } from 'src/constants/constants'
+import { ALL_ITEMS } from 'src/constants/constants'
 import questService from 'src/services/quest.service'
 import QuestPage from './Quest'
 
@@ -41,7 +41,7 @@ export async function generateMetadata({
   }
 }
 export async function generateStaticParams() {
-  const { array } = await questService.getAll(allItems)
+  const { array } = await questService.getAll(ALL_ITEMS)
 
   return array.map(({ id }) => ({
     id: id.toString(),

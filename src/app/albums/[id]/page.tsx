@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { allItems } from 'src/constants/constants'
+import { ALL_ITEMS } from 'src/constants/constants'
 import albumService from 'src/services/album.service'
 import viewsService from 'src/services/views.service'
+import type { TParams } from 'src/types/global.types'
 import { Album } from 'ui/Albums/Album'
 
 const Comments = dynamic(() =>
@@ -45,18 +46,14 @@ export async function generateMetadata({
   }
 }
 export async function generateStaticParams() {
-  const { array } = await albumService.getAll(allItems)
+  const { array } = await albumService.getAll(ALL_ITEMS)
 
   return array.map(({ id }) => ({
     id: id.toString(),
   }))
 }
 
-export default async function Page({
-  params: { id },
-}: {
-  params: { id: number }
-}) {
+export default async function Page({ params: { id } }: TParams) {
   //@ts-ignore
   const album = (await getOnePost(id)).data
   await viewsService.addView('albums', id)

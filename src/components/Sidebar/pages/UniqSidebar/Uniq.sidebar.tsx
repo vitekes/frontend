@@ -1,8 +1,9 @@
 import sqarle from 'assets/sqarle.png'
 import Image from 'next/image'
-import { Button } from 'src/components/ui/Button/Button'
+import { Button } from 'ui/Button/Button'
 import { Title } from 'ui/Title/Title'
-import SidebarTitle from '../SidebarTitle'
+import SidebarTitle from '../../SidebarTitle'
+
 const UniqSidebar = () => {
   return (
     <div className='sidebar__uniq'>

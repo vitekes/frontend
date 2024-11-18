@@ -6,8 +6,8 @@ import albumService from 'src/services/album.service'
 import type { IAlbum } from 'src/types/album.types'
 import type { IResponse } from 'src/types/global.types'
 import { Albums } from 'ui/Albums/Albums'
-import { Heading } from '../ui/Heading/Heading'
-const Pagination = dynamic(() => import('../Pagintaion/Pagination'))
+import { Heading } from 'ui/Heading/Heading'
+const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 export function AlbumsPage({
   initialData,
 }: {

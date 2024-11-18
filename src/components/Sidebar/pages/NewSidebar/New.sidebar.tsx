@@ -1,4 +1,5 @@
-import SidebarTitle from '../SidebarTitle'
+import SidebarTitle from '../../SidebarTitle'
+
 type TRules = { text: string; id: number }
 const rules: TRules[] = [
   {

@@ -10,7 +10,7 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
   ({ label, extra, isTextarea, ...rest }, ref) => {
     return (
-      <div className={`${extra} field`}>
+      <div className={`field ${extra ? extra : ''}`}>
         <label>
           {label}
           {isTextarea ? (

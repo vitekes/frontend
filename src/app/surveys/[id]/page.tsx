@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Heading } from 'src/components/ui/Heading/Heading'
-import { allItems } from 'src/constants/constants'
+import { ALL_ITEMS } from 'src/constants/constants'
 import surveysService from 'src/services/surveys.service'
 import viewsService from 'src/services/views.service'
 import type { IOneRes } from 'src/types/global.types'
@@ -42,7 +42,7 @@ export async function generateMetadata({
   }
 }
 export async function generateStaticParams() {
-  const { array } = await surveysService.getAll(allItems)
+  const { array } = await surveysService.getAll(ALL_ITEMS)
 
   return array.map(({ id }) => ({
     id: id.toString(),

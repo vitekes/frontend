@@ -1,5 +1,5 @@
 import { Subscribe } from 'src/components/ui/Subscribe/Subscribe'
-import SidebarTitle from '../SidebarTitle'
+import SidebarTitle from '../../SidebarTitle'
 
 const BlogSidebar = () => (
   <div className='sidebar__subscribes'>
