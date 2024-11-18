@@ -30,7 +30,11 @@ export function Button({
     btn__disabled: disabled,
   }
   return (
-    <button {...rest} className={cn(`btn ${className}`, classes)}>
+    <button
+      {...rest}
+      disabled={disabled}
+      className={cn(`btn ${className}`, classes)}
+    >
       {children}
     </button>
   )

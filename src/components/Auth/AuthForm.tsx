@@ -3,6 +3,7 @@
 import { Button } from 'ui/Button/Button'
 import { Field } from 'ui/Fields/Field/Field'
 import './AuthForm.sass'
+import { AuthToggle } from './AuthToggle'
 import { useAuthForm } from './useAuthForm'
 interface AuthFormProps {
   isLogin: boolean
@@ -15,12 +16,21 @@ export function AuthForm({ isLogin }: AuthFormProps) {
     <div className='auth-form__wrapper'>
       <form onSubmit={handleSubmit(onSubmit)} className='auth-form'>
         <h1>{isLogin ? 'Войти' : 'Регистрация'}</h1>
+
         <Field
           label='Имя'
           type='text'
           placeholder='Введите имя'
           {...register('username', { required: true })}
         />
+        {!isLogin && (
+          <Field
+            label='Email'
+            type='email'
+            placeholder='Введите email'
+            {...register('email', { required: true })}
+          />
+        )}
 
         <Field
           label='Пароль'
@@ -28,6 +38,14 @@ export function AuthForm({ isLogin }: AuthFormProps) {
           placeholder='Введите пароль'
           {...register('password', { required: true })}
         />
+        {!isLogin && (
+          <Field
+            label='Повторите пароль'
+            type='password'
+            placeholder='Повторите пароль'
+            {...register('retry_password', { required: true })}
+          />
+        )}
 
         {/* <ReCAPTCHA
 					ref={recaptchaRef}
@@ -43,7 +61,12 @@ export function AuthForm({ isLogin }: AuthFormProps) {
 
         {/* <SocialMediaButtons /> */}
 
-        {/* <AuthToggle isLogin={isLogin} /> */}
+        <AuthToggle isLogin={isLogin} />
+        <p className='auth-form__rules'>
+          {isLogin
+            ? 'Авторизуясь на сайте, вы принимаете условия оказания услуг, условия платежей, политику конфиденциальности и файлов cookie'
+            : 'Регистрируясь, Вы соглашаетесь с пользовательским соглашением и политикой конфиденциальности.'}
+        </p>
       </form>
     </div>
   )

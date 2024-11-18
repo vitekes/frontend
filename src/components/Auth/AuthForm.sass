@@ -10,7 +10,7 @@
 		margin: 0 auto
 		display: grid
 		row-gap: 20px
-		width: 570px
+		width: min(570px, 100%)
 		h1
 			font-size: 40px
 			color: $color
@@ -19,3 +19,17 @@
 		button
 			font-size: 20px
 			height: 60px
+		.auth-form__rules
+			font-size: 12px
+			font-weight: 400
+			color: $greyTxt
+		.auth-form__toggle
+			p
+				font-size: 15px
+				display: flex
+				align-items: center
+				justify-content: space-between
+				column-gap: 5px
+				button
+					font-size: 16px
+					font-weight: 700
