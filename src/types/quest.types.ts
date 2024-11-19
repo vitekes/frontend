@@ -1,8 +1,4 @@
-import type { IGlobalLines, TTag } from './global.types'
-
-export interface IQuest extends IGlobalLines {
-  // history_date: Date | null
-}
+import type { IGlobalForm, IGlobalLines, TIdsArray, TTag } from './global.types'
 
 export interface IQuestUniq {
   data: {
@@ -14,5 +10,14 @@ export interface IQuestUniq {
     voice: number | null
     voice_loading: boolean
     in_not_subscribed: boolean
-  } & Omit<IQuest, 'description'>
+  } & Omit<IGlobalLines, 'description'>
+}
+
+export interface IQuestForm extends IGlobalForm {
+  user: number
+  blog: number
+  genres_set: TIdsArray
+  in_progress: boolean
+  tags: string
+  timer: number
 }

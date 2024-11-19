@@ -1,7 +1,4 @@
-import surveysService from 'src/services/surveys.service'
-
-const page = async () => {
-  const data = await surveysService.getAll()
-  return <div></div>
+const page = () => {
+  return <div>page</div>
 }
 export default page

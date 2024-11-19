@@ -3,7 +3,7 @@ import { initialQueryParams } from 'src/constants/constants'
 import type { IArrayRes, IOneRes, TPagination } from 'src/types/global.types'
 
 export class Service<T> {
-  readonly BASE_URL: string
+  public readonly BASE_URL: string
 
   constructor(baseUrl: string) {
     this.BASE_URL = baseUrl

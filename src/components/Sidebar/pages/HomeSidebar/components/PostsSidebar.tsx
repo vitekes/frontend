@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
+import SidebarTitle from 'src/components/Sidebar/SidebarTitle'
 import blogService from 'src/services/blog.service'
 import SkeletonLoader from 'ui/Skeleton/Skeleton'
-import SidebarTitle from '../../SidebarTitle'
 import { SidebarPost } from './Post.sidebar'
 
 const PostsSidebar = () => {
   const { data, isLoading, isFetching, isPending, isRefetching } = useQuery({
-    queryKey: ['posts popular'],
-    queryFn: () => blogService.getPopular(),
+    queryKey: ['popular posts'],
+    queryFn: () => blogService.getPopularPosts(),
   })
   const loaders = isLoading || isFetching || isPending || isRefetching
   return (

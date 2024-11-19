@@ -26,6 +26,7 @@ export interface IGlobalLines {
   namespace: TNamespaces
   preview: string
 }
+export type TIdsArray = { id: number }[]
 export type TAnswer = {
   id: number
   title: string
@@ -41,6 +42,13 @@ export interface IQueryLayout<T> {
   isFetching: boolean
   isError: boolean
   error: Error | null
+}
+export interface IGlobalForm {
+  title: string
+  language: string
+  description: string
+  content: string
+  level_access: number
 }
 export enum EnumLanguage {
   ENGLISH = 'english',

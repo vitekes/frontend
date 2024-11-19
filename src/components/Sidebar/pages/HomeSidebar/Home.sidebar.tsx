@@ -1,41 +1,11 @@
-import SidebarTitle from '../../SidebarTitle'
-import { SidebarAuthor } from '../AuthorSidebar/Author.sidebar'
-import PostsSidebar from './PostsSidebar'
+import AuthorsSidebar from './components/AuthorsSidebar'
+import PostsSidebar from './components/PostsSidebar'
 
-const authors = [
-  {
-    subs: 144000,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 912,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 1002242502,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 1250000,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 144000,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 145006,
-    title: 'Загадки и приключения',
-  },
-  {
-    subs: 124030,
-    title: 'Загадки и приключения',
-  },
-]
 export default function HomeSidebar() {
   return (
     <>
       <PostsSidebar />
+      <AuthorsSidebar />
       {/* <section className='sidebar__categories'>
         <SidebarTitle>Популярные категории</SidebarTitle>
 
@@ -47,15 +17,6 @@ export default function HomeSidebar() {
           ]}
         />
       </section> */}
-      <section className='sidebar__authors'>
-        <SidebarTitle>Популярные авторы</SidebarTitle>
-
-        <section className='sidebar__authors-list'>
-          {authors.map(({ subs, title }, index) => (
-            <SidebarAuthor key={index} subs={subs} title={title} />
-          ))}
-        </section>
-      </section>
     </>
   )
 }

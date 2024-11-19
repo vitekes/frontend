@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
 import { useFilters } from 'src/hooks/useFilters'
 import albumService from 'src/services/album.service'
-import type { IAlbum } from 'src/types/album.types'
+import type { IGlobalLines } from 'src/types/album.types'
 import type { IResponse } from 'src/types/global.types'
 import { Albums } from 'ui/Albums/Albums'
 import { Heading } from 'ui/Heading/Heading'
@@ -11,7 +11,7 @@ const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 export function AlbumsPage({
   initialData,
 }: {
-  initialData: IResponse<IAlbum>
+  initialData: IResponse<IGlobalLines>
 }) {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
   const { data, isPending, isFetching, isRefetching } = useQuery({

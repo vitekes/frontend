@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import type { IQuest } from 'src/types/quest.types'
+import type { IGlobalLines } from 'src/types/quest.types'
 import { convertDate } from 'src/utils/convertDate'
 import { Author } from '../ui/Author/Author'
 import { NeedRoute } from '../ui/needRoute'
@@ -22,7 +22,7 @@ const Quest = ({
     user: { avatar, first_name, last_name },
   },
 }: {
-  quest: IQuest
+  quest: IGlobalLines
   isUniq?: boolean
 }) => {
   const prettyDate = convertDate(new Date(date))

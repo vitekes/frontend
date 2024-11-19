@@ -15,21 +15,25 @@ const Quests = dynamic(() =>
 const Abouts = dynamic(() =>
   import('./BlogPages/Abouts').then(mod => mod.Abouts),
 )
+type Props = { initialData: TPostArray }
+const TabsPages = ({
+  initialData,
+  tabActive,
+}: { tabActive: number } & Props) => {
+  switch (tabActive) {
+    case 0:
+      return <PostsTabs initialData={initialData} />
+    case 1:
+      return <AlbumsTabs />
+    case 2:
+      return <Quests />
+    case 3:
+      return <Abouts />
+  }
+}
 export const Blog = ({ initialData }: { initialData: TPostArray }) => {
   const { setTab, tabActive } = useBlogTabs(state => state)
 
-  const tabs = () => {
-    switch (tabActive) {
-      case 0:
-        return <PostsTabs initialData={initialData} />
-      case 1:
-        return <AlbumsTabs />
-      case 2:
-        return <Quests />
-      case 3:
-        return <Abouts />
-    }
-  }
   return (
     <div className='blog__content'>
       <Tabs
@@ -38,7 +42,9 @@ export const Blog = ({ initialData }: { initialData: TPostArray }) => {
         tabs={['Лента', 'Альбомы', 'Квесты', 'Об авторе']}
       />
 
-      <section className='posts'>{tabs()}</section>
+      <section className='posts'>
+        {<TabsPages initialData={initialData} tabActive={tabActive} />}
+      </section>
     </div>
   )
 }
