@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
+import NewQuests from './NewQuests'
+
+export const metadata: Metadata = {
+  title: 'Новый квест',
+}
+
 const page = () => {
-  return <div>page</div>
+  return <NewQuests />
 }
 export default page

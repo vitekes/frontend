@@ -18,7 +18,6 @@ import type { IStore, TSale, TTabs } from './store.types'
 //     },
 //   ),
 // )
-
 export const useProfileTabs = create<TTabs>()(
   persist(
     set => ({
@@ -31,6 +30,21 @@ export const useProfileTabs = create<TTabs>()(
     }),
     {
       name: 'profile-tabs',
+    },
+  ),
+)
+export const useNewQuestsTabs = create<TTabs>()(
+  persist(
+    set => ({
+      tabActive: 0,
+      setTab: (num: number) =>
+        set(({ tabActive }) => {
+          if (tabActive > 5 && tabActive < 0) return { tabActive: 1 }
+          return { tabActive: num }
+        }),
+    }),
+    {
+      name: 'new-quests-tabs',
     },
   ),
 )

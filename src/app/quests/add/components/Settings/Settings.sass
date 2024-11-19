@@ -1,0 +1,19 @@
+.newQuest__settings
+	form
+		display: flex
+		flex-direction: column
+		row-gap: 30px
+		margin-top: 30px
+		.selectors
+			display: grid
+			width: 100%
+			gap: 30px
+			justify-content: space-between
+			grid-template-columns: repeat(auto-fill, 350px)
+			h3
+				font-size: 16px
+				font-weight: 700
+				margin-bottom: 10px
+@media screen and (width <=770px)
+	.selectors
+		grid-template-columns: 100%

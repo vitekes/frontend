@@ -38,10 +38,10 @@ body
 
 
 .main
-	&.main-profile
-		width: $mainWidthWithSidebar
+	&.main-big
+		width: $mainWidthWithSidebar 
 		float: left
-	&.main-with-sidebar:not(.main-profile)
+	&.main-with-sidebar:not(.main-big)
 		width: $mainWidthWithoutSidebar
 		float: left
 	&.main-without-sidebar
@@ -68,4 +68,5 @@ body
 @media screen and (width <= $md)
 	main
 		width: 100% !important
-		
+		&.main-big
+			width: 100% !important

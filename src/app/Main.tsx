@@ -2,21 +2,21 @@
 
 import cn from 'clsx'
 import { usePathname } from 'next/navigation'
-import type { ReactNode } from 'react'
-import getNeedsSidebar from 'src/utils/getProfilePath'
+import type { FC, ReactNode } from 'react'
+import useSidebars from 'src/utils/useSidebars'
 interface Props {
   children: ReactNode
 }
 
-export const Main = ({ children }: Props) => {
+export const Main: FC<Props> = ({ children }) => {
   const path = usePathname()
-  const { isNeedSideBar: needSideBar, isProfile } = getNeedsSidebar(path)
+  const { isNeedSideBar: needSideBar, isSmall } = useSidebars(path)
   return (
     <main
       className={cn('main', {
         'main-with-sidebar': needSideBar,
         'main-without-sidebar': !needSideBar,
-        'main-profile': isProfile,
+        'main-big': isSmall,
       })}
     >
       {children}

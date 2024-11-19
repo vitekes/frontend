@@ -2,10 +2,9 @@
 import cn from 'clsx'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
-import getNeedsSidebar, {
-  type IGetNeedsSidebar,
-} from 'src/utils/getProfilePath'
+import useSidebars, { type IGetNeedsSidebar } from 'src/utils/useSidebars'
 import './Sidebar.sass'
+import NewQuestSidebar from './pages/NewQuestSidebar/NewQuest.sidebar'
 const NewSidebar = dynamic(() => import('./pages/NewSidebar/New.sidebar'))
 const UniqSidebar = dynamic(() => import('./pages/UniqSidebar/Uniq.sidebar'))
 const ProfileSidebar = dynamic(
@@ -15,7 +14,7 @@ const HomeSidebar = dynamic(() => import('./pages/HomeSidebar/Home.sidebar'))
 const BlogSidebar = dynamic(() => import('./pages/BlogSidebar/Blog.sidebar'))
 
 const Sidebars = ({
-  is: { isBlog, isMain, isProfile, isUniq, isNew },
+  is: { isBlog, isMain, isProfile, isUniq, isNew, isNewQuest },
 }: {
   is: IGetNeedsSidebar
 }) => {
@@ -26,6 +25,8 @@ const Sidebars = ({
       return <HomeSidebar />
     case isProfile:
       return <ProfileSidebar />
+    case isNewQuest:
+      return <NewQuestSidebar />
     case isUniq:
       return <UniqSidebar />
     case isNew:
@@ -37,10 +38,10 @@ const Sidebars = ({
 
 export const Sidebar = () => {
   const path = usePathname()
-  const is = getNeedsSidebar(path)
+  const is = useSidebars(path)
   if (!is.isNeedSideBar) return <></>
   return (
-    <aside className={cn('sidebar', { sidebar__profile: is.isProfile })}>
+    <aside className={cn('sidebar', { sidebar__small: is.isSmall })}>
       <Sidebars is={is} />
     </aside>
   )
