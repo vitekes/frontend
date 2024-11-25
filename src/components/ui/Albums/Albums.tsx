@@ -1,4 +1,4 @@
-import type { IGlobalLines } from 'src/types/album.types'
+import type { IGlobalLines } from 'src/types/global.types'
 import SkeletonLoader from '../Skeleton/Skeleton'
 import { Album } from './Album'
 import './Albums.sass'
@@ -8,7 +8,7 @@ export const Albums = ({ albums, isLoading }: TProps) => {
   return (
     <section className='albums__list'>
       {albums.map(album => (
-        <Album album={album} key={album.id} />
+        <Album needRoute album={album} key={album.id} />
       ))}
     </section>
   )

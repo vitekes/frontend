@@ -7,15 +7,12 @@ import type { TParams } from 'src/types/global.types'
 import { Album } from 'ui/Albums/Album'
 
 const Comments = dynamic(() =>
-  import('src/components/ui/Comments/Comments').then(mod => mod.Comments),
+  import('ui/Comments/Comments').then(mod => mod.Comments),
 )
 
 async function getOnePost(id: number) {
-  const { data, status } = await albumService.getOne(id)
-  if (status === 404) {
-    const { notFound } = await import('next/navigation')
-    notFound()
-  }
+  const { data } = await albumService.getOne(id)
+
   return data
 }
 export async function generateMetadata({

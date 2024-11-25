@@ -13,10 +13,6 @@ async function getAllPosts() {
 }
 async function getOnePost(id: number): Promise<TOnePost> {
   const postWithStatus = await postService.getOne(id)
-  if (postWithStatus.status === 404) {
-    const { notFound } = await import('next/navigation')
-    notFound()
-  }
   return postWithStatus
 }
 

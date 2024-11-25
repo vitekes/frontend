@@ -8,10 +8,6 @@ import CyclePage from './CyclePage'
 
 const getOneCycle = async (id: number): Promise<IOneRes<ICycle>> => {
   const data = await cyclesService.getOne(id)
-  if (data.status === 404) {
-    const { notFound } = await import('next/navigation')
-    notFound()
-  }
   return data
 }
 export async function generateMetadata({

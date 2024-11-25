@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import type { IGlobalLines } from 'src/types/quest.types'
+
+import type { IGlobalLines } from 'src/types/global.types'
 import { convertDate } from 'src/utils/convertDate'
 import { Author } from '../ui/Author/Author'
 import { NeedRoute } from '../ui/needRoute'

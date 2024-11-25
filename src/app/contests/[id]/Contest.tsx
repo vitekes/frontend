@@ -1,11 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import type { IContest } from 'src/types/contest.types'
 import { convertDateRadius } from 'src/utils/convertDate'
 import slicerTxt from 'src/utils/slicer.util'
 import { Button } from 'ui/Button/Button'
 import { Title } from 'ui/Title/Title'
 export function Contest({
-  data: { title, preview, description, end_date, start_date },
+  data: { title, preview, description, end_date, start_date, id },
 }: {
   data: IContest
 }) {
@@ -33,9 +34,16 @@ export function Contest({
         <p itemProp='description' className='contest__description'>
           {slicerTxt(description)}
         </p>
-        <Button size='md' variant='black'>
-          Детали конкурса
-        </Button>
+        <Link href={`/contests/${id}`}>
+          <Button
+            // onClick={() => push(`/contests/${id}`)}
+            className='contest__btn'
+            size='md'
+            variant='black'
+          >
+            Детали конкурса
+          </Button>
+        </Link>
       </div>
     </article>
   )

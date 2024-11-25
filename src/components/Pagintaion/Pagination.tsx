@@ -1,10 +1,10 @@
 import type { FC } from 'react'
-import { Button } from '../ui/Button/Button'
+import { Button } from 'ui/Button/Button'
 import './Pagination.sass'
 
 interface IPagination {
   numberPages: number
-  // eslint-disabled-next-line
+  // eslint-disable-next-line
   changePage: (page: string) => void
   currentPage?: string
 }

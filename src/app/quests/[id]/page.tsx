@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
 import { ALL_ITEMS } from 'src/constants/constants'
 import questService from 'src/services/quest.service'
+import type { IOneRes } from 'src/types/global.types'
+import type { IQuestUniq } from 'src/types/quest.types'
 import QuestPage from './Quest'
 
-async function getOneQuest(id: number) {
-  const { data, status } = await questService.getOne(id)
-  if (status === 404) {
+async function getOneQuest(id: number): Promise<IOneRes<IQuestUniq>> {
+  const quests = await questService.getOne(id)
+  if (quests.status === 404) {
     const { notFound } = await import('next/navigation')
     notFound()
   }
-  return data
+  return quests
 }
 export async function generateMetadata({
   params: { id },
@@ -17,14 +19,12 @@ export async function generateMetadata({
   params: { id: string }
 }): Promise<Metadata> {
   const {
-    data: {
-      title,
-      content: description,
-      language,
-      preview,
-      user: { username, last_name, first_name },
-    },
-  } = await getOneQuest(+id)
+    title,
+    content: description,
+    language,
+    preview,
+    user: { username, last_name, first_name },
+  } = (await getOneQuest(+id)).data.data
 
   return {
     title,

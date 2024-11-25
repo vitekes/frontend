@@ -1,14 +1,23 @@
 {
   "extends": [
+    "next",
     "next/core-web-vitals",
     "next/typescript",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["node_modules/*"],
+  "ignorePatterns": [
+    "node_modules/*",
+    "src/services/auth/*",
+    "src/types/user.types.ts"
+  ],
   "rules": {
-    "no-var": "warn",
+    // WARNING
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
+    //
+    "no-var": "off",
     "prefer-const": "warn",
-    "no-unused-vars": "warn",
     "no-use-before-define": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",

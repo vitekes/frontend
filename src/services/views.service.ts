@@ -3,7 +3,7 @@ import type { TNamespaces } from 'src/types/global.types'
 
 class ViewsService {
   public async addView(type: TNamespaces, id: number): Promise<boolean> {
-    const { data, status } = await axiosClassic.post<{ success: string }>(
+    const { status } = await axiosClassic.post<{ success: string }>(
       `${type}/${id}/view/add/`,
       {},
     )

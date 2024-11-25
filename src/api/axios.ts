@@ -5,6 +5,7 @@ const axiosOptions: CreateAxiosDefaults = {
   baseURL: API_URL,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
+  maxRedirects: 5,
 }
 
 export const axiosClassic = axios.create(axiosOptions)

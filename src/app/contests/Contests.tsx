@@ -1,9 +1,11 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
-import { useFilters } from 'src/hooks/useFilters'
+import type { FC } from 'react'
+import { useContestsPagination } from 'src/hooks/usePagintaion'
 import contestService from 'src/services/contest.service'
-import type { IArrayRes } from 'src/types/global.types'
+import type { IContest } from 'src/types/contest.types'
+import type { IResponse } from 'src/types/global.types'
 import { Heading } from 'ui/Heading/Heading'
 import SkeletonLoader from 'ui/Skeleton/Skeleton'
 import { Contest } from './[id]/Contest'
@@ -11,8 +13,11 @@ import './Contests.sass'
 
 const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 
-export function Contests({ initialData }: { initialData: IArrayRes }) {
-  const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
+export const Contests: FC<{
+  initialData: IResponse<IContest>
+}> = ({ initialData }) => {
+  const { queryParams, isFilterUpdated, updateQueryParams } =
+    useContestsPagination()
   const { data, isPending, isFetching, isRefetching } = useQuery({
     queryKey: ['contests', queryParams],
     queryFn: () => contestService.getAll(queryParams),
@@ -24,7 +29,6 @@ export function Contests({ initialData }: { initialData: IArrayRes }) {
     <div className='contests'>
       <Heading>Конкурсы</Heading>
       {data.array.map(contest => (
-        // @ts-ignore
         <Contest key={contest.id} data={contest} />
       ))}
       <Pagination

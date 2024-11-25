@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
 import Quest from 'src/components/Quests/Quest'
 import SkeletonLoader from 'src/components/ui/Skeleton/Skeleton'
-import { useFilters } from 'src/hooks/useFilters'
+import { useQuestsPagination } from 'src/hooks/usePagintaion'
 import questService from 'src/services/quest.service'
 import type { IArrayRes } from 'src/types/global.types'
 const Pagination = dynamic(() => import('src/components/Pagintaion/Pagination'))
 
 const Quests = ({ quests }: { quests: IArrayRes }) => {
-  const { queryParams, isFilterUpdated, updateQueryParams } = useFilters()
+  const { queryParams, isFilterUpdated, updateQueryParams } =
+    useQuestsPagination()
   const {
     data: { array, length },
     isPending,

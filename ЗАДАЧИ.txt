@@ -1,3 +1,11 @@
+> Export encountered errors on following paths:
+	/albums/page: /albums
+	/contests/page: /contests
+	/page: /
+	/quests/[id]/page: /quests/2
+	/quests/page: /quests
+
+
 ЗАДАЧИ
 __________________
 

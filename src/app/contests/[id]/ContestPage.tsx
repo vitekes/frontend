@@ -13,7 +13,8 @@ const ContestPage = ({ initialData }: { initialData: IOneRes<IContest> }) => {
     queryFn: () => contestService.getOne(idContest),
     initialData,
   })
-  if (isFetching || isRefetching || isPending) return <SkeletonLoader isAlone />
+  if (isFetching || isRefetching || isPending || !data)
+    return <SkeletonLoader isAlone />
   return <Contest data={data.data.data} />
 }
 export default ContestPage

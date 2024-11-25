@@ -1,9 +1,9 @@
-export enum UserRole {
-  USER = 'USER',
-  PREMIUM = 'PREMIUM',
-  MANAGER = 'MANAGER',
-  ADMIN = 'ADMIN',
-}
+// export enum UserRole {
+//   USER = 'USER',
+//   PREMIUM = 'PREMIUM',
+//   MANAGER = 'MANAGER',
+//   ADMIN = 'ADMIN',
+// }
 export interface IUser {
   pk: number
   email: string

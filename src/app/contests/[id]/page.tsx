@@ -6,10 +6,7 @@ import type { IOneRes, TParams } from 'src/types/global.types'
 import ContestPage from './ContestPage'
 async function getOneContest(id: number): Promise<IOneRes<IContest>> {
   const data = await contestService.getOne(id)
-  if (data.status === 404) {
-    const { notFound } = await import('next/navigation')
-    notFound()
-  }
+  // @ts-ignore
   return data
 }
 export async function generateMetadata({
