@@ -29,8 +29,7 @@ export function AuthForm({ isLogin }: AuthFormProps) {
             type='email'
             placeholder='Введите email'
             {...register('email', { required: true })}
-          />
-        )}
+          /> */}
 
         <Field
           label='Пароль'
@@ -38,14 +37,14 @@ export function AuthForm({ isLogin }: AuthFormProps) {
           placeholder='Введите пароль'
           {...register('password', { required: true })}
         />
-        {!isLogin && (
+        {/* {!isLogin && (
           <Field
             label='Повторите пароль'
             type='password'
             placeholder='Повторите пароль'
             {...register('retry_password', { required: true })}
           />
-        )} */}
+        )}  */}
 
         {/* <ReCAPTCHA
 					ref={recaptchaRef}
